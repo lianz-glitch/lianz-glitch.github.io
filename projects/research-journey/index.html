@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="description" content="Anzheng Li's research journey from IO and health economics to the ETC payment reform.">
+<title>From IO &amp; Health to ETC | Anzheng Li</title>
+<style>html{color-scheme:light}body{margin:0;padding:32px 24px;background:#fff;color:#302e2b;font:19px/1.7 Georgia,'Times New Roman',serif}.standalone{max-width:1140px;margin:auto}a{color:#7d2222}.back{margin:0 0 28px}@media(max-width:600px){body{padding:24px 16px}}</style>
+</head><body><main class="standalone"><p class="back"><a href="../../ai-economics.html">AI &amp; Economics Research</a></p><style>
+#etc-research-tree {
+  --background: #fff;
+  --foreground: #302e2b;
+  --muted-foreground: #746d67;
+  --border: #e3dfda;
+  --ring: #241b18;
+  --viz-series-1: #7d2222;
+  --viz-series-2: #a57935;
+  --viz-series-3: #608574;
+  --viz-series-4: #9c84a0;
+  --viz-series-5: #345f7d;
+  width: 100%;
+  color: var(--foreground);
+  font-size: 18px;
+  line-height: 1.65;
+}
+#etc-research-tree * { box-sizing: border-box; }
+#etc-research-tree [hidden] { display: none !important; }
+#etc-research-tree h2 { font-size: 28px; font-weight: 400; line-height: 1.4; margin: 0 0 12px; }
+#etc-research-tree p { margin: 0; }
+#etc-research-tree .tree-heading > p { max-width: 790px; font-size: 20px; }
+#etc-research-tree .tree-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 24px 0 18px; font-size: 16px; }
+#etc-research-tree .tree-legend > span { display: inline-flex; align-items: center; gap: 8px; }
+#etc-research-tree .legend-mark { display: inline-block; width: 10px; height: 10px; flex: none; }
+#etc-research-tree .main-mark { background: var(--viz-series-1); border-radius: 50%; }
+#etc-research-tree .deep-mark { background: var(--viz-series-5); border-radius: 50%; }
+#etc-research-tree .evidence-mark { background: var(--viz-series-2); clip-path: polygon(50% 0,100% 100%,0 100%); }
+#etc-research-tree .repair-mark { background: var(--viz-series-3); }
+#etc-research-tree .reserve-mark { border: 1.5px solid var(--viz-series-4); border-radius: 50%; }
+#etc-research-tree button, #etc-research-tree select { font: inherit; color: inherit; border: 1px solid var(--border); background: #fff; border-radius: 3px; }
+#etc-research-tree button { padding: 8px 13px; font-size: 16px; line-height: 1.4; min-height: 40px; cursor: pointer; }
+#etc-research-tree button:hover { border-color: var(--viz-series-1); color: var(--viz-series-1); }
+#etc-research-tree button:disabled { opacity: .4; cursor: default; }
+#etc-research-tree :focus-visible { outline: 2px solid var(--viz-series-1); outline-offset: 4px; }
+#etc-research-tree .tree-map-toolbar, #etc-research-tree .tree-plane-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+#etc-research-tree .tree-map-toolbar { border-top: 1px solid var(--border); padding-top: 18px; }
+#etc-research-tree #tree-coverage { font-size: 16px; color: var(--muted-foreground); }
+#etc-research-tree .tree-view-actions, #etc-research-tree .tree-stage-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+#etc-research-tree .tree-plane-bar { margin: 18px 0 0; color: var(--viz-series-5); }
+#etc-research-tree .tree-plot { position: relative; height: 740px; width: 100%; margin: 10px 0 0; border-bottom: 1px solid var(--border); }
+#etc-research-tree canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+#etc-research-tree canvas.is-dragging { cursor: grabbing; }
+#etc-research-tree .tree-hover { position: absolute; pointer-events: none; padding: 5px 9px; background: #fff; border: 1px solid var(--border); max-width: calc(100% - 16px); font-size: 16px; }
+#etc-research-tree .tree-plane-action { position: absolute; z-index: 1; }
+#etc-research-tree .tree-plane-action button { color: var(--viz-series-1); background: #fff; }
+#etc-research-tree .tree-interaction { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 22px; padding: 18px 0; color: var(--muted-foreground); font-size: 16px; }
+#etc-research-tree .tree-view-controls[open] { flex-basis: 100%; }
+#etc-research-tree .tree-view-controls .tree-view-actions { margin-top: 12px; }
+#etc-research-tree summary { cursor: pointer; color: var(--viz-series-1); padding-block: 4px; font-size: 18px; }
+#etc-research-tree .tree-selection { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px 20px; align-items: center; margin: 20px 0 28px; }
+#etc-research-tree .tree-selection label { grid-column: 1 / -1; }
+#etc-research-tree select { display: block; min-width: 0; width: 100%; max-width: 100%; padding: 10px; min-height: 46px; font-size: 17px; }
+#etc-research-tree .tree-detail { border-left: 3px solid var(--viz-series-1); padding: 2px 0 0 26px; max-width: 890px; }
+#etc-research-tree .tree-node-status { color: var(--muted-foreground); font-size: 16px; }
+#etc-research-tree .tree-detail h3 { font-size: 27px; font-weight: 400; line-height: 1.4; margin: 8px 0 22px; }
+#etc-research-tree .tree-facts { display: grid; grid-template-columns: 145px minmax(0,1fr); gap: 17px 20px; margin: 0; font-size: 19px; }
+#etc-research-tree .tree-facts dt { color: var(--muted-foreground); }
+#etc-research-tree .tree-facts dd { margin: 0; overflow-wrap: anywhere; }
+#etc-research-tree .tree-related-details { margin-top: 24px; }
+#etc-research-tree .tree-related { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+#etc-research-tree .tree-record-note { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--border); }
+#etc-research-tree .tree-record-note p { margin-top: 16px; max-width: 860px; }
+#etc-research-tree .tree-font-probe { position: absolute; visibility: hidden; pointer-events: none; font: 16px Georgia, 'Times New Roman', serif; }
+@media (max-width: 720px) {
+  #etc-research-tree .tree-plot { height: 660px; }
+  #etc-research-tree .tree-heading > p { font-size: 19px; }
+  #etc-research-tree .tree-selection { grid-template-columns: minmax(0,1fr); }
+  #etc-research-tree .tree-facts { grid-template-columns: minmax(0,1fr); gap: 6px; }
+  #etc-research-tree .tree-facts dd { margin-bottom: 13px; }
+  #etc-research-tree .tree-detail { padding-left: 18px; }
+  #etc-research-tree .tree-detail h3 { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) { #etc-research-tree * { scroll-behavior: auto !important; } }
+</style>
+<section id="etc-research-tree" aria-labelledby="tree-heading">
+  <div class="tree-heading">
+    <h2 id="tree-heading">From IO &amp; Health to ETC</h2>
+    <p>My search began with industrial organization and health economics and led to Medicare’s End-Stage Renal Disease Treatment Choices (ETC) Model. Follow the arrows through the questions, branches, and revisions that shaped the paper.</p>
+  </div>
+  <div class="tree-legend" aria-label="Map legend">
+    <span><i class="legend-mark main-mark" aria-hidden="true"></i>Topic search</span>
+    <span><i class="legend-mark deep-mark" aria-hidden="true"></i>Developing ETC</span>
+    <span><i class="legend-mark evidence-mark" aria-hidden="true"></i>Evidence &amp; design</span>
+    <span><i class="legend-mark repair-mark" aria-hidden="true"></i>Checks &amp; revisions</span>
+    <span><i class="legend-mark reserve-mark" aria-hidden="true"></i>Alternatives</span>
+  </div>
+  <div class="tree-map-toolbar">
+    <span id="tree-coverage"></span>
+    <div class="tree-view-actions">
+      <button type="button" id="tree-autorotate" aria-pressed="true">Pause rotation</button>
+      <button type="button" id="tree-start">Go to start</button>
+      <button type="button" id="tree-etc">Go to ETC</button>
+      <button type="button" id="tree-reset">Reset view</button>
+    </div>
+  </div>
+  <div class="tree-plane-bar" id="tree-plane-bar" hidden>
+    <span id="tree-plane-name" aria-live="polite"></span>
+    <button type="button" id="tree-show-all">Show full map</button>
+  </div>
+  <div class="tree-plot">
+    <canvas id="tree-canvas" tabindex="0" aria-describedby="tree-interaction-label" aria-label="Interactive 3D research journey. Arrows lead from IO and Health to ETC and the paper. Use arrow keys to rotate and plus or minus to zoom. All nodes are also available in the selector below.">Use the node selector below to read all stages and branches of the research journey.</canvas>
+    <span class="tree-hover" id="tree-hover" hidden></span>
+    <div class="tree-plane-action" id="tree-plane-action" hidden>
+      <button type="button" id="tree-show-plane" aria-controls="tree-canvas tree-node-select">Focus this stage</button>
+    </div>
+  </div>
+  <div class="tree-interaction">
+    <p id="tree-interaction-label">Drag to rotate. Select a node to read its story.</p>
+    <details class="tree-view-controls">
+    <summary>View controls</summary>
+    <p>Use the buttons below, pinch, or hold Ctrl / ⌘ while scrolling to zoom.</p>
+      <div class="tree-view-actions" role="group" aria-label="Rotate and zoom">
+        <button type="button" id="tree-turn-left" aria-label="Rotate left 45 degrees">Rotate left</button>
+        <button type="button" id="tree-turn-right" aria-label="Rotate right 45 degrees">Rotate right</button>
+        <button type="button" id="tree-turn-up" aria-label="Rotate up 45 degrees">Rotate up</button>
+        <button type="button" id="tree-turn-down" aria-label="Rotate down 45 degrees">Rotate down</button>
+        <button type="button" id="tree-zoom-in">Zoom in</button>
+        <button type="button" id="tree-zoom-out">Zoom out</button>
+      </div>
+    </details>
+  </div>
+  <div class="tree-selection">
+    <label for="tree-node-select">Explore a stage or branch</label>
+    <select id="tree-node-select" aria-controls="tree-detail"></select>
+    <div class="tree-stage-actions">
+      <button type="button" id="tree-previous">Previous stage</button>
+      <button type="button" id="tree-next">Next stage</button>
+    </div>
+  </div>
+  <section class="tree-detail" id="tree-detail" aria-live="polite" aria-atomic="true">
+    <p id="tree-node-status" class="tree-node-status"></p>
+    <h3 id="tree-node-title"></h3>
+    <dl class="tree-facts">
+      <dt>The check</dt><dd id="tree-work"></dd>
+      <dt>What followed</dt><dd id="tree-result"></dd>
+      <dt>The lesson</dt><dd id="tree-knowledge"></dd>
+    </dl>
+    <details class="tree-related-details">
+      <summary id="tree-related-label">Connected branches</summary>
+      <div id="tree-related" class="tree-related"></div>
+    </details>
+  </section>
+  <details class="tree-record-note">
+    <summary>About this research record</summary>
+    <p>This account condenses the supplied research map while retaining all 12 main stages and 119 branches. It is reconstructed from research notes and a manuscript snapshot through October 3, 2026. The period before August 4 is based on my recollection.</p>
+    <p>Arrows show the direction of the research process, not causal relationships or equal units of time. Earlier branches retain their historical judgments. Estimates from different data versions and inference rules should not be combined; a promising exploratory lead is not a confirmed result.</p>
+  </details>
+  <span class="tree-font-probe" aria-hidden="true">Research</span>
+</section>
+
+<script type="application/json" id="etc-history-data">{"asOf":"2026-10-03","account":"Condensed account of the supplied research record. All original nodes and parent-child links are retained. Earlier results describe their historical research round.","edgeMeaning":"Arrows show research progression and question decomposition, not causal effects or equally spaced time.","nodes":[{"id":"interest","parent":null,"kind":"main","stage":0,"path":["interest"],"date":"Before August 4, 2026","label":"IO & Health","work":"Search the literature, institutions, and public data for an economic question about health care markets.","result":"Begin with broad interests rather than a predetermined policy or conclusion. The earliest stage is reconstructed from my recollection.","knowledge":"An interest defines where to search. A research idea also needs a contribution, credible identification, and usable data."},{"id":"state","parent":"interest","kind":"main","stage":1,"path":["interest","state"],"date":"August 4–10, 2026","label":"State transaction review","work":"Check state laws, disclosure portals, CMS ownership changes, and related research.","result":"State-law designs did not clear the identification checks. Ownership-change work produced useful measurement and descriptive evidence, but not a strong causal interpretation.","knowledge":"A policy on the books is not yet a reliable treatment variable. Audit measurement before estimating effects."},{"id":"nursing","parent":"state","kind":"main","stage":2,"path":["interest","state","nursing"],"date":"August 10–12, 2026","label":"Nursing home policies","work":"Investigate Texas QIPP, nursing home ratings, and the Special Focus Facility program.","result":"Different branches stopped for different reasons: missing assignment data, weak power, inconclusive estimates, or identification problems.","knowledge":"A threshold design needs the actual assignment rule, local support, and enough relevant events."},{"id":"pool","parent":"nursing","kind":"main","stage":3,"path":["interest","state","nursing","pool"],"date":"August 12, 2026","label":"14 policy candidates","work":"Build a candidate register and compare randomization, thresholds, historical rosters, and event counts.","result":"Advance QIP first, while keeping ETC and CJR as alternatives.","knowledge":"Apply the same contribution, data, identification, and power criteria across candidates."},{"id":"qip","parent":"pool","kind":"main","stage":4,"path":["interest","state","nursing","pool","qip"],"date":"August 12–13, 2026","label":"QIP: testing the story","work":"Link dialysis quality penalties to ownership records, facility size, staffing, and cost reports.","result":"Broad size and input responses were not established. Apparent administrative changes reflected timing or reporting problems. The economic question also remained too narrow.","knowledge":"An imprecise estimate, a misleading apparent effect, and a limited contribution are different reasons to change direction."},{"id":"economic","parent":"qip","kind":"main","stage":5,"path":["interest","state","nursing","pool","qip","economic"],"date":"August 13, 2026","label":"Return to the economic question","work":"Compare ETC, CJR, and other payment reforms against the closest literature and available data.","result":"Select ETC for its geographic randomization, linkable public data, and question about technology substitution, existing capital, and provider responses.","knowledge":"Choose a direction for its economic content and credible evidence, not simply its smallest p-value."},{"id":"etc","parent":"economic","kind":"main","stage":6,"path":["interest","state","nursing","pool","qip","economic","etc"],"date":"August 13, 2026","label":"ETC: a viable research lead","work":"Verify the randomized assignment across 302 hospital referral regions and construct market outcomes.","result":"The search converges on Medicare's End-Stage Renal Disease Treatment Choices Model. Early capacity results are weak, while ownership composition provides an initial lead.","knowledge":"A viable idea begins a new phase of testing. Policy randomization identifies an intention-to-treat effect, not the effect of ownership or a particular mechanism."},{"id":"ownership","parent":"etc","kind":"main","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership"],"date":"From August 13, 2026","label":"Ownership composition","work":"Stabilize ownership classifications, verify acquisitions, and decompose entry, survival, and chain responses.","result":"An early independent-facility share estimate narrowed from about +3.12 to +2.00 percentage points under stricter definitions. These are historical results, not the current paper's main table.","knowledge":"Check numerators, denominators, and classification changes. A share effect does not identify the acquisition mechanism."},{"id":"entry","parent":"ownership","kind":"main","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry"],"date":"Mid-to-late August 2026","label":"Verify the entrants","work":"Look for actual operation, project dates, prior plans, and complete cost reports for new facilities.","result":"116 of 122 early independent candidates had operating evidence. Later work found that the roster missed entrants absent from the final snapshot.","knowledge":"An administrative appearance, an operating site, and a policy-induced investment are three different facts."},{"id":"census","parent":"entry","kind":"main","stage":9,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census"],"date":"Late August 2026","label":"Rebuild entry flows","work":"Reconstruct entry from historical records and check relocations, re-registrations, predecessors, and operating evidence.","result":"The end-minus-start roster omitted facilities that entered and disappeared before the endpoint. Suspend the old entry conclusions and re-estimate.","knowledge":"Changes in endpoint stocks are not entry flows. Data repair must be allowed to overturn the initial story."},{"id":"home","parent":"census","kind":"main","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home"],"date":"Late August–early September 2026","label":"What do new sites provide?","work":"Measure home dialysis sites, treatments, persistence, and market totals across ownership types.","result":"The question shifts from facility counts to actual home dialysis supply among entrants. A broad market expansion is not established.","knowledge":"Growth in one provider segment is different from net growth in the whole market."},{"id":"cohort","parent":"home","kind":"main","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort"],"date":"September 10–October 3, 2026","label":"Paper: fixed entry cohorts","work":"Fix rosters by entry year, follow them through 2024, and compare cohort totals with incumbents and the market.","result":"In the October 3, 2026 manuscript snapshot, the 2021 cohort adds 0.125 home providers and 183.01 Medicare home-equivalent treatments per region. Both meet the 10% level, not 5%.","knowledge":"The contribution is persistent supply from early entry cohorts. It does not establish an ownership effect, a unique mechanism, or overall welfare gains."},{"id":"portals","parent":"state","kind":"repair","stage":1,"path":["interest","state","portals"],"date":"August 4–10, 2026","label":"Disclosure portals","work":"Compare reporting requirements with the transactions visible in public portals.","result":"Stop using the portals to estimate transaction incidence: reporting and disclosure select which transactions appear, and the policy may change that selection.","knowledge":"Being recorded in a database can itself be a policy outcome."},{"id":"chow","parent":"state","kind":"repair","stage":1,"path":["interest","state","chow"],"date":"August 4–10, 2026","label":"Ownership-change data vintages","work":"Compare CMS file vintages, treatment dates, and selected published results.","result":"Versions changed assignments and some magnitudes, while signs agreed across four vintages. Overlap, pretrends, and inference checks did not support a strong causal interpretation.","knowledge":"Administrative changes of ownership, acquisitions, and economic control are not interchangeable. This was not a complete replication of the original paper."},{"id":"networks","parent":"state","kind":"reserve","stage":1,"path":["interest","state","networks"],"date":"August 4–10, 2026","label":"Serial acquisitions","work":"Link legal entities, buyers, and controlling organizations.","result":"Retain the descriptive buyer network. Stop the concentration branch because reliable operating-control coverage is insufficient; the ownership-versus-operation distinction suggests QIPP.","knowledge":"A legal owner need not be the organization exercising operating control."},{"id":"qipp","parent":"nursing","kind":"reserve","stage":2,"path":["interest","state","nursing","qipp"],"date":"August 10–12, 2026","label":"Texas QIPP","work":"Search for historical eligibility scores, participation and payment rosters, and cost-report proxies.","result":"Pause the causal design: official Year 1 assignment could not be reconstructed. A proxy cannot replace the actual score; sparse transactions and anticipation create further constraints.","knowledge":"The running variable must reproduce the institution's assignment rule."},{"id":"stars1","parent":"nursing","kind":"repair","stage":2,"path":["interest","state","nursing","stars1"],"date":"August 10–12, 2026","label":"One-star ratings and acquisitions","work":"Examine rating thresholds and acquisitions within one year.","result":"The estimated acquisition change is +0.23 percentage points, with a 95% interval of [-2.51, 2.98] and p=0.867. No response is detected, but meaningful effects remain possible.","knowledge":"Information depends on events and assignment units, not just the number of rows."},{"id":"stars45","parent":"nursing","kind":"repair","stage":2,"path":["interest","state","nursing","stars45"],"date":"August 10–12, 2026","label":"The four/five-star boundary","work":"Estimate staffing and behavior responses; separately assess a pure-label design and additional market outcomes.","result":"Behavioral responses are not stable, the pure-label comparison fails identification checks, and new outcomes face power or measurement limits. Some branches were estimated; others were not.","knowledge":"A strong first stage cannot replace usable, adequately powered outcomes."},{"id":"sff","parent":"nursing","kind":"repair","stage":2,"path":["interest","state","nursing","sff"],"date":"August 10–12, 2026","label":"Special Focus Facilities","work":"Reconstruct candidacy, private notification, public disclosure, and formal supervision.","result":"Early estimates did not establish a stable core result. The later disclosure design faced comparability and precision problems; formal supervision lacked historical scores.","knowledge":"Separate candidate status, information disclosure, and regulatory enforcement."},{"id":"pool_qip","parent":"pool","kind":"evidence","stage":3,"path":["interest","state","nursing","pool","pool_qip"],"date":"August 12, 2026","label":"QIP penalties","work":"Check repeated quality scores, events, and sample support near the threshold.","result":"Advance to a further identification audit and preliminary estimation.","knowledge":"A promising screen authorizes the next check; it does not establish a research finding."},{"id":"cjr","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","cjr"],"date":"August 12, 2026","label":"CJR bundled payments","work":"Check metropolitan-area randomization, ownership changes, and detectable effects.","result":"Keep as a strong alternative. A short mandatory treatment window is less suited to slow organizational responses; later voluntary participation complicates long-run interpretation.","knowledge":"Match the policy window to the time firms need to adjust."},{"id":"pool_etc","parent":"pool","kind":"evidence","stage":3,"path":["interest","state","nursing","pool","pool_etc"],"date":"August 12, 2026","label":"ETC as an alternative","work":"Review randomized regions, ownership events, and continuous supply measures.","result":"Acquisitions are too rare for the planned test. Continuous supply and market-structure outcomes offer a more feasible route, later chosen as the main direction.","knowledge":"When events are rare, reconsider which outcomes actually capture the economic mechanism."},{"id":"hhvbp","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","hhvbp"],"date":"August 12, 2026","label":"Home Health Value-Based Purchasing","work":"Check the nine treated states and available ownership events.","result":"Retain as an alternative with limited cluster-level power. Related ownership research also narrows the contribution.","knowledge":"Many facilities cannot compensate for very few treated clusters."},{"id":"mips","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","mips"],"date":"August 12, 2026","label":"MIPS low-volume exemption","work":"Inspect multiple thresholds, assessment periods, group and APM exceptions, and physician-to-firm links.","result":"Assignment reconstruction and organization links remain unresolved; do not proceed to a causal estimate.","knowledge":"A threshold includes its exceptions, timing, and organizational level."},{"id":"b340","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","b340"],"date":"August 12, 2026","label":"340B payment cuts","work":"Assess exposure measures and the closest hospital-integration research.","result":"Deprioritize because exposure is endogenous and the related integration and payment-arbitrage literature is crowded.","knowledge":"A different policy name does not by itself create a new economic contribution."},{"id":"moratorium","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","moratorium"],"date":"August 12, 2026","label":"Home health entry moratoria","work":"Check targeted locations, borders, and transaction counts.","result":"Do not pursue a simple difference-in-differences design: the policy deliberately targets high-fraud areas.","knowledge":"Explain why treatment locations were selected before relying on a comparison group."},{"id":"dsh","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","dsh"],"date":"August 12, 2026","label":"DSH/340B thresholds","work":"Count nearby hospitals and ownership changes and inspect density around the cutoff.","result":"Stop the direct transaction design: 81 nearby hospitals yield only two ownership changes over 36 months, with additional density concerns.","knowledge":"Local designs require support, events, and credible sorting diagnostics."},{"id":"transfer","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","transfer"],"date":"August 12, 2026","label":"The 36-month transfer rule","work":"Count home health agencies and transfers near the eligibility duration.","result":"Stop the current transaction design: a one-year window on each side contains 1,374 agencies but only 13 transactions.","knowledge":"A clear institution can still be uninformative with the available events."},{"id":"hacrp","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","hacrp"],"date":"August 12, 2026","label":"Hospital-acquired condition penalties","work":"Review public scores, transactions, and threshold studies.","result":"Keep in reserve because transaction outcomes are sparse and the literature already covers nearby questions.","knowledge":"Contribution and statistical power must both justify the next investment of research time."},{"id":"hhp4p","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","hhp4p"],"date":"August 12, 2026","label":"Home health P4P pilot","work":"Search for the historical randomized treatment and control roster.","result":"Only winners or partial treated lists are available. The causal route is blocked without the full facility assignment list.","knowledge":"A list of successful participants cannot reconstruct a randomized comparison."},{"id":"nyvbp","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","nyvbp"],"date":"August 12, 2026","label":"New York nursing VBP","work":"Check reported treatment and control counts against linkable facility identifiers.","result":"A public description lists 72 treated and 79 control facilities, but the complete randomized roster has not been verified.","knowledge":"Randomization described in a paper must be linkable to the data used for a new question."},{"id":"rural","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","rural"],"date":"August 12, 2026","label":"Rural low-volume support","work":"Review payment rules, timing, and repeated extensions.","result":"Keep in reserve pending a historical payment audit. The population and transaction counts are small, and repeated extensions blur timing and expectations.","knowledge":"The policy clock must account for what firms could anticipate."},{"id":"pdpm","parent":"pool","kind":"reserve","stage":3,"path":["interest","state","nursing","pool","pdpm"],"date":"August 12, 2026","label":"Skilled nursing PDPM reform","work":"Compare the national 2019 reform with the subsequent pandemic.","result":"Stop this round: a credible comparison is missing, and COVID follows closely after implementation.","knowledge":"A national reform cannot be separated from a concurrent shock by timing alone."},{"id":"qip_admin","parent":"qip","kind":"repair","stage":4,"path":["interest","state","nursing","pool","qip","qip_admin"],"date":"August 12–13, 2026","label":"An apparent administrative decline","work":"Separate the score-formation year, payment year, and baseline staffing path.","result":"An apparent 1.07% decline has raw p=0.0121 but Holm p=0.2299. A score-year spike explains the pattern; withdraw the payment-year staff-cut interpretation.","knowledge":"The period determining a penalty is not automatically a clean pre-policy baseline."},{"id":"qip_scale","parent":"qip","kind":"repair","stage":4,"path":["interest","state","nursing","pool","qip","qip_scale"],"date":"August 12–13, 2026","label":"Penalties and facility size","work":"Estimate patient volume, year-end census, transfers, and stations within the audited local score comparison.","result":"No size response is detected. The intervals still permit smaller economically meaningful payment-year effects.","knowledge":"A narrow or imprecise outcome cannot support a broad theory of firm adjustment."},{"id":"site_neutral","parent":"economic","kind":"reserve","stage":5,"path":["interest","state","nursing","pool","qip","economic","site_neutral"],"date":"August 13, 2026","label":"Off-campus site-neutral payments","work":"Check grandfathering and historical outpatient-site and practice ownership.","result":"Keep the economic question in reserve. A reliable national historical panel is unavailable, and grandfathering is not random assignment.","knowledge":"An arbitrage story needs observable choices and credible treatment variation."},{"id":"ltch","parent":"economic","kind":"reserve","stage":5,"path":["interest","state","nursing","pool","qip","economic","ltch"],"date":"August 13, 2026","label":"Long-term care hospital payments","work":"Assess case-mix exposure and pandemic exemptions.","result":"Deprioritize because exposure is endogenous and later exemptions mix in other changes.","knowledge":"A large payment shock is not necessarily an exogenous shock."},{"id":"dme","parent":"economic","kind":"reserve","stage":5,"path":["interest","state","nursing","pool","qip","economic","dme"],"date":"August 13, 2026","label":"Equipment competitive bidding","work":"Compare existing work on prices, suppliers, competition, and fraud.","result":"Do not select this direction without a sufficiently distinct economic question.","knowledge":"Locate the new economic contribution before expanding the estimation exercise."},{"id":"pdgm","parent":"economic","kind":"reserve","stage":5,"path":["interest","state","nursing","pool","qip","economic","pdgm"],"date":"August 13, 2026","label":"Home health PDGM","work":"Compare the January 2020 start with pandemic timing.","result":"Do not select this round: no sufficiently credible differential-exposure design separates the two changes.","knowledge":"Timing coincidence is not an identification strategy."},{"id":"surprise","parent":"economic","kind":"reserve","stage":5,"path":["interest","state","nursing","pool","qip","economic","surprise"],"date":"August 13, 2026","label":"The No Surprises Act","work":"Check provider ownership, insurer networks, and commercial price data.","result":"Do not prioritize without the necessary linked ownership, network, and price information.","knowledge":"The data must measure the mechanism the question is about."},{"id":"etc_rct","parent":"etc","kind":"evidence","stage":6,"path":["interest","state","nursing","pool","qip","economic","etc","etc_rct"],"date":"August 13, 2026","label":"Randomization and inference","work":"Verify 91 treated and 211 control hospital referral regions across four regional strata; exclude nonrandom Maryland.","result":"The assignment supports a regional policy intention-to-treat design. Each outcome still requires its own coverage and measurement audit.","knowledge":"Align treatment units, strata, and randomization inference. Randomization does not repair missing outcomes."},{"id":"etc_capacity","parent":"etc","kind":"repair","stage":6,"path":["interest","state","nursing","pool","qip","economic","etc","etc_capacity"],"date":"August 13, 2026","label":"Capacity and facility counts","work":"Construct regional measures of dialysis supply.","result":"Early broad capacity and production outcomes show no detectable response.","knowledge":"Failure to reject zero is not proof of zero; inspect the interval and the outcome definition."},{"id":"etc_tradeoff","parent":"etc","kind":"evidence","stage":6,"path":["interest","state","nursing","pool","qip","economic","etc","etc_tradeoff"],"date":"August 13, 2026","label":"Technology and existing capital","work":"Connect payment incentives to sunk capital, service substitution, and organizational boundaries.","result":"This tradeoff motivates ETC, but retrofit costs and business cannibalization are not independently identified mechanisms.","knowledge":"Use theory to generate tests, not to substitute for mechanism evidence."},{"id":"taxonomy","parent":"ownership","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","taxonomy"],"date":"From August 13, 2026","label":"Repair ownership classifications","work":"Freeze a consistent parent-company definition and verify changes against ownership records and announcements.","result":"Remove mechanical classification jumps and recalculate shares.","knowledge":"A change in a data dictionary can look like a change in firm behavior."},{"id":"acquisition","parent":"ownership","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","acquisition"],"date":"From August 13, 2026","label":"Independent-to-chain acquisitions","work":"Verify 13 acquisitions and conduct market-level randomization inference.","result":"Events cluster in a few control markets, but adjusted evidence is insufficient to establish an acquisition mechanism.","knowledge":"Rare, concentrated events can limit an apparently striking pattern."},{"id":"riskpool","parent":"ownership","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","riskpool"],"date":"From August 13, 2026","label":"Local risk pools","work":"Evaluate local risk-pool exposure jointly with national scale.","result":"Early signals weaken in the joint comparison; a distinct risk-pool mechanism is not established.","knowledge":"Competing explanations should enter the same test."},{"id":"national_scale","parent":"ownership","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","national_scale"],"date":"From August 13, 2026","label":"National chain scale","work":"Examine scale interactions and independent facilities' home dialysis and training responses.","result":"Some individual signals appear, but the expected mechanism chain and multiple-testing robustness do not hold.","knowledge":"A plausible narrative must remain open to contrary evidence."},{"id":"survival_old","parent":"ownership","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","survival_old"],"date":"From August 13, 2026","label":"Incumbent independent survival","work":"Follow a fixed baseline set of 813 independent facilities for exit, acquisition, and stations.","result":"The main survival and capacity-preservation results are not statistically established.","knowledge":"Keep the baseline risk set fixed rather than conditioning on survivors."},{"id":"chain_retreat","parent":"ownership","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","chain_retreat"],"date":"From August 13, 2026","label":"Chain contraction","work":"Freeze chain cohorts and decompose entry, exit, capacity, and the two largest firms.","result":"Signs often suggest contraction, but randomization and family-level tests do not confirm it.","knowledge":"Consistent signs are not statistical confirmation; differences between groups need a direct test."},{"id":"ownership_level","parent":"ownership","kind":"evidence","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","ownership_level"],"date":"From August 13, 2026","label":"Shares versus levels","work":"Jointly examine ownership shares, counts, and direct contrasts.","result":"Some archived specifications support composition shifts. They do not establish selective independent entry, and later roster repair limits reuse of the old decomposition.","knowledge":"Shares, levels, flows, and cumulative stocks answer different questions."},{"id":"welfare","parent":"ownership","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare"],"date":"From August 13, 2026","label":"Who benefits?","work":"Study patient, geographic, fiscal, and provider outcomes.","result":"Some clinical outcomes offer evidence, but ownership shares alone do not establish overall welfare gains.","knowledge":"The policy is randomized; ownership is not. Welfare requires additional outcomes and accounting."},{"id":"hard_health","parent":"welfare","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","hard_health"],"date":"From August 13, 2026","label":"Mortality and hospitalization","work":"Replace rolling measures that mix policy periods with annual facility-report outcomes.","result":"Average mortality, hospitalization, and readmission changes are not statistically established.","knowledge":"An imprecise health result is not precise evidence of no health effect."},{"id":"clinical","parent":"welfare","kind":"evidence","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","clinical"],"date":"From August 13, 2026","label":"Vascular access and transplantation","work":"Check access measures, waitlisting, and home-patient shares.","result":"The manuscript snapshot supports selected vascular-access improvements, but not broad improvement across health and transplant outcomes.","knowledge":"Specific quality signals do not establish an overall health or welfare effect."},{"id":"distance","parent":"welfare","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","distance"],"date":"From August 13, 2026","label":"Distance and provider choice","work":"Link facility locations to kidney-disease-risk-weighted local areas and nearby alternatives.","result":"No clear distance improvement appears. Historical intervals rule out a prespecified one-mile gain, while some other measures remain imprecise.","knowledge":"Geographic distance is not travel time, transport availability, or actual patient choice."},{"id":"experience","parent":"welfare","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","experience"],"date":"From August 13, 2026","label":"Patient experience and complaints","work":"Audit survey coverage and the type of inspections recorded.","result":"Observed reports show no significant change, and reporting coverage limits population-wide conclusions.","knowledge":"Missing reports are not zeros, and complaint-triggered inspections are not total complaints."},{"id":"fiscal","parent":"welfare","kind":"reserve","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","fiscal"],"date":"From August 13, 2026","label":"Medicare spending","work":"Compare public regional fee-for-service spending with external program evaluations.","result":"Public spending covers much more than kidney care and does not identify precise net fiscal benefits. External CMS claims findings remain external evidence.","knowledge":"A percentage payment adjustment is not realized fiscal expenditure."},{"id":"surplus","parent":"welfare","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","surplus"],"date":"From August 13, 2026","label":"Provider income and surplus","work":"Freeze baseline ownership and compare revenue, cost, income, and exit.","result":"Earlier broad profit results were inconclusive. The current aggregate net-income decline meets the 1% level, but a same-direction 2020 difference and imprecise unit-income results limit interpretation.","knowledge":"Revenue, accounting income, provider surplus, and social welfare are different objects."},{"id":"patient_flow","parent":"welfare","kind":"evidence","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","patient_flow"],"date":"From August 13, 2026","label":"Patients at independent facilities","work":"Link annual patient flows to ownership classifications.","result":"Independent patient shares move with supply shares. The signal does not meet the prespecified power criterion for a two-percentage-point change.","knowledge":"Patient reallocation is not an increase in total services, a referral mechanism, or a welfare gain."},{"id":"weight_patient","parent":"patient_flow","kind":"repair","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","patient_flow","weight_patient"],"date":"From August 13, 2026","label":"Typical market or typical patient?","work":"Compare equal-market weights with weights based on pre-policy patient counts.","result":"The equal-market home-patient share signal is stronger; patient-weighted estimates are not significant. The former also remains sensitive to multiplicity corrections.","knowledge":"Weights define the estimand. Do not choose them just for statistical significance."},{"id":"real_operation","parent":"entry","kind":"evidence","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","real_operation"],"date":"Mid-to-late August 2026","label":"Evidence of actual operation","work":"Cross-check treatments in cost reports, dialysis stations, and continued activity.","result":"116 of 122 early independent candidates have operating evidence. This validates activity within the old roster, not its completeness or policy-induced investment.","knowledge":"Use evidence suited to home-only facilities and account for short follow-up of recent entrants."},{"id":"decision_date","parent":"entry","kind":"repair","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","decision_date"],"date":"Mid-to-late August 2026","label":"Opening versus investment dates","work":"Search for planning, irreversible commitments, and facility-specific formation dates.","result":"Many projects existed before public policy disclosure, and certification can lag for years. An induced-investment mechanism remains unidentified.","knowledge":"Investment, preparation, certification, and opening run on different economic clocks."},{"id":"date_missing","parent":"decision_date","kind":"repair","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","decision_date","date_missing"],"date":"Mid-to-late August 2026","label":"Unobserved decision dates","work":"Separate facility-specific evidence from shared legal entities and unavailable official records.","result":"Recover more precise dates where possible; retain remaining dates as unknown.","knowledge":"A completed audit does not mean every fact is observed. Registration is not automatically the investment date."},{"id":"pre_pipeline","parent":"entry","kind":"repair","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","pre_pipeline"],"date":"Mid-to-late August 2026","label":"The pre-policy project pipeline","work":"Freeze publicly visible projects using historical provider records before policy disclosure.","result":"No clear acceleration of conversion is detected, and intervals are wide.","knowledge":"Study projects that have not opened as well as successes. This risk set covers visible projects, not all potential investment."},{"id":"post_pipeline","parent":"entry","kind":"repair","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","post_pipeline"],"date":"Mid-to-late August 2026","label":"Newly visible projects","work":"Track new public provider records and adjudicate subsequent certification.","result":"The two joint primary outcomes are not significant. Public preparation can be studied, but private investment plans remain unobserved.","knowledge":"First appearance of a provider identifier is not a decision date. A success rate among post-policy candidates is not a project-level causal effect."},{"id":"con","parent":"entry","kind":"evidence","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","con"],"date":"Mid-to-late August 2026","label":"Entry restrictions and profit status","work":"Check certificate-of-need rules, profit status, and home-only facilities.","result":"Earlier patterns concentrate in markets without entry restrictions and in for-profit facilities; after date repair they remain directional evidence.","knowledge":"Heterogeneity by an existing institution does not identify that institution's own causal effect."},{"id":"profiles","parent":"entry","kind":"evidence","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","profiles"],"date":"Mid-to-late August 2026","label":"Independent and chain profiles","work":"Compare operations, inputs, and service profiles.","result":"Scale and cost structures differ, but there is no general quality-superiority finding.","knowledge":"Ownership is endogenous. Descriptive group differences do not identify ownership effects, and non-chain does not necessarily mean physician-owned."},{"id":"early_phase","parent":"entry","kind":"evidence","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","early_phase"],"date":"Mid-to-late August 2026","label":"Early and later payment phases","work":"Compare the early home-dialysis adjustment with later overlapping reward and penalty periods.","result":"Early signals are stronger, but the HDPA and PPA components are not separately identified.","knowledge":"Calendar time, cohort age, and policy exposure move together. Phase differences are not component effects."},{"id":"operating_footprint","parent":"entry","kind":"evidence","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","operating_footprint"],"date":"Mid-to-late August 2026","label":"Treatments, employment, and revenue","work":"Aggregate the first full cost reports to randomized markets.","result":"The old roster shows stronger standardized operating footprints; absolute results are sensitive to weights and small markets.","knowledge":"Aggregate activity is neither profit nor the causal effect of one entrant. Historical roster results are not the current cohort estimates."},{"id":"zero_missing","parent":"operating_footprint","kind":"repair","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","operating_footprint","zero_missing"],"date":"Mid-to-late August 2026","label":"True zeros versus missing reports","work":"Start with every randomized market, then link operating reports.","result":"Code no entry as a genuine zero, while leaving missing reports unknown and examining sensitivity.","knowledge":"Do not create treatment differences by converting unavailable outcomes into zeros."},{"id":"ratio","parent":"operating_footprint","kind":"reserve","stage":8,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","operating_footprint","ratio"],"date":"Mid-to-late August 2026","label":"Activity per additional facility","work":"Calculate the ratio of two intention-to-treat effects from the same policy assignment.","result":"The ratio describes policy increments. It does not identify the effect of randomly adding a facility because ETC can also change operations at facilities that would enter anyway.","knowledge":"A ratio needs a sufficiently strong denominator and additional exclusion restrictions for a facility-level causal interpretation."},{"id":"endpoint_bias","parent":"census","kind":"repair","stage":9,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","endpoint_bias"],"date":"Late August 2026","label":"Entrants lost before the endpoint","work":"Trace how the difference between 2020 and 2026 snapshots generated the original roster.","result":"Facilities opening and disappearing before the final snapshot are necessarily omitted.","knowledge":"Conditioning on endpoint visibility creates survivor selection."},{"id":"replacements","parent":"census","kind":"repair","stage":9,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","replacements"],"date":"Late August 2026","label":"Relocations and re-registrations","work":"Check addresses, predecessors, ownership changes, and certification histories.","result":"Separate replacement, reopening, and genuine site entry; keep unresolved records explicit.","knowledge":"A new administrative identifier does not automatically mean a new site or investment."},{"id":"entry_null","parent":"census","kind":"repair","stage":9,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","entry_null"],"date":"Late August 2026","label":"Re-estimate general entry","work":"Re-estimate annual and four-year average entry across ownership groups.","result":"Early linear average estimates after reconstruction are near zero; later models and years do not agree uniformly.","knowledge":"Allow corrected data to overturn a hypothesis. General entry and home-service provision are different outcomes."},{"id":"accounting","parent":"census","kind":"evidence","stage":9,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","accounting"],"date":"Late August 2026","label":"Complete market accounting","work":"Split each market into baseline incumbents, a 2020 transition group, policy-period entrants, and a residual.","result":"Verify that the groups sum exactly to the market total in every year.","knowledge":"An accounting identity constrains the analysis but does not prove displacement or patient transfers."},{"id":"estimators","parent":"census","kind":"repair","stage":9,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","estimators"],"date":"Late August 2026","label":"Models and sparse counts","work":"Compare unadjusted, additive, and Lin specifications; examine count models and baseline links.","result":"Some conclusions and precision vary by model, sample, and baseline definition.","knowledge":"Choose models for the assignment, outcome distribution, and estimand; retain sensitivity instead of the smallest p-value."},{"id":"freeze","parent":"census","kind":"evidence","stage":9,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","freeze"],"date":"Late August 2026","label":"Freeze the next round's rules","work":"Record samples, dates, variables, models, inference, and what has already been examined.","result":"Set data-readiness checks by module and preserve unsuccessful tests and revisions.","knowledge":"Locking a later analysis does not make earlier exploration prospectively registered."},{"id":"quantity","parent":"home","kind":"evidence","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","quantity"],"date":"Late August–early September 2026","label":"Home sites and treatment volume","work":"Measure positive home-treatment sites and equivalent treatments from the same cost reports.","result":"The current 2021 cohort averages +0.125 sites and +183.01 Medicare home-equivalent treatments per region, at 10% but not 5%. Earlier rolling-pool raw p-values are different tests and did not pass Holm adjustment.","knowledge":"Certification, positive provision, and output intensity are not substitutes for one another."},{"id":"margins","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","margins"],"date":"Late August–early September 2026","label":"Extensive and intensive margins","work":"Account for active sites, the fraction providing home dialysis, and conditional service intensity.","result":"Positive home-service sites are informative, but individual channels remain imprecise and are not separately identified.","knowledge":"Conditional means reflect entry and survival selection. Accounting components are not causal mediators."},{"id":"market_total","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","market_total"],"date":"Late August–early September 2026","label":"Expansion or reallocation?","work":"Compare fixed incumbents, entrants, and full-market supply.","result":"The four incumbent and market average outcomes are not significant. Neither broad expansion nor precise displacement is established.","knowledge":"An insignificant market total cannot prove complete one-for-one substitution."},{"id":"payment_parts","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","payment_parts"],"date":"Late August–early September 2026","label":"Payment-component exposure","work":"Construct pre-policy payment-base exposures and test them jointly.","result":"Highly correlated exposures do not support the prespecified interaction results or identify separate component effects.","knowledge":"Randomization of ETC does not randomize each dollar of its HDPA and PPA components."},{"id":"home_access","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","home_access"],"date":"Late August–early September 2026","label":"Home dialysis service gaps","work":"Link a geographic facility panel to the distribution of kidney-disease risk.","result":"Distance, nearby choice, and service-desert measures show no statistically established improvement.","knowledge":"Activity in one provider segment need not close geographic gaps in service."},{"id":"duplication","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","duplication"],"date":"Late August–early September 2026","label":"Costs and duplicate capacity","work":"Test market costs, unit costs, staffing, and productivity.","result":"Broad market resource or cost expansion is not confirmed.","knowledge":"New entrants or local spending alone do not prove waste or lost efficiency."},{"id":"home_birth","parent":"home","kind":"evidence","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","home_birth"],"date":"Late August–early September 2026","label":"Home services at new sites","work":"Audit site origins and compare first full operating years with incumbent adoption.","result":"Early cohorts offer some signals, but formal differences between new and old sites remain uncertain.","knowledge":"A first complete year is not the opening day. Significance in one group alone does not establish a difference between groups."},{"id":"retrofit","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","retrofit"],"date":"Late August–early September 2026","label":"Incumbent conversion costs","work":"Freeze baseline non-home providers and test size, age, utilization, and readiness.","result":"Age and utilization signs are consistent with the hypothesis, but estimates are imprecise.","knowledge":"A compatible direction does not identify a retrofit-cost or existing-capital mechanism."},{"id":"pipeline_home","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","pipeline_home"],"date":"Late August–early September 2026","label":"Home services in existing projects","work":"Freeze projects visible before policy disclosure and track their first full-year home services.","result":"No clear reconfiguration of the fixed pipeline is detected.","knowledge":"Changing a known project's services and creating a new project are separate margins."},{"id":"hub","parent":"home","kind":"evidence","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","hub"],"date":"Late August–early September 2026","label":"New and old sites within a firm","work":"Freeze parent-company networks within regions and reconcile services at new and existing sites.","result":"New sites show a stronger signal; existing-site declines and formal network-group differences are not confirmed.","knowledge":"Network accounting can suggest a lead without proving that a firm moved patients or business between sites."},{"id":"switch","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","switch"],"date":"Late August–early September 2026","label":"Patient modality switches","work":"Audit public standardized modality-switch ratios, rolling windows, and coverage.","result":"Public averages are not significant, and patient-level origins and destinations are unavailable. New-site reporting also involves post-policy selection.","knowledge":"A rolling facility ratio cannot distinguish incident home patients, within-site switches, and transfers between facilities."},{"id":"training","parent":"home","kind":"evidence","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","training"],"date":"Late August–early September 2026","label":"Home capacity and training","work":"Inspect home-treatment capabilities and the first available facility snapshots.","result":"The 2021 cohort has an early raw signal, but the across-cohort average is not significant. The first snapshot arrives a median 556 days later.","knowledge":"The date a capability is observed is not the date it was established."},{"id":"formation","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","formation"],"date":"Late August–early September 2026","label":"New projects or faster completion?","work":"Separate newly visible post-policy projects from the fixed pre-policy risk set.","result":"Neither persistent project-formation growth nor faster conversion of the fixed pipeline is established.","knowledge":"Project formation, public formalization, and realization require separate measurement."},{"id":"structure","parent":"home","kind":"repair","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","structure"],"date":"Late August–early September 2026","label":"A structural-model attempt","work":"Estimate a dynamic action model and check external randomized-policy moments.","result":"The initial model omits survival, output, and market accounting, so its structural interpretation does not pass validation.","knowledge":"Numerical convergence does not identify economic mechanisms, dollar costs, or welfare counterfactuals."},{"id":"recursive","parent":"structure","kind":"evidence","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","structure","recursive"],"date":"Late August–early September 2026","label":"A limited stock-output model","work":"Add recursive stocks and output and test held-out external moments.","result":"Limited observed-policy accounting predictions are not rejected, but profit, fixed-cost, and full welfare counterfactuals remain unidentified.","knowledge":"Passing some checks does not prove a model correct or identify all its parameters."},{"id":"project_records","parent":"structure","kind":"reserve","stage":10,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","structure","project_records"],"date":"Late August–early September 2026","label":"Applications and unrealized projects","work":"Collect official applications, withdrawals, unrealized projects, and first full reports across states.","result":"The project risk set and financial data remain incomplete; unknown, pending, failed, and unrealized records stay distinct.","knowledge":"Successful openings alone cannot identify selection among potential projects."},{"id":"fixed_roster","parent":"cohort","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","fixed_roster"],"date":"September 10–October 3, 2026","label":"Fix the entry-year roster","work":"Lock facilities to their first entry year and continue following the original cohort.","result":"This avoids constantly changing the rolling entrant pool, but entry itself can still respond to the policy.","knowledge":"A fixed observation roster does not make entry selection exogenous."},{"id":"twofactor","parent":"cohort","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","twofactor"],"date":"September 10–October 3, 2026","label":"Entrant count times average service","work":"Retain original entrants, known nonproviders, and exits in a two-factor accounting decomposition.","result":"Counts receive much of the site estimate and roughly two-thirds of the treatment-volume point allocation; uncertainty remains substantial.","knowledge":"These are accounting allocations, not identified causal mediation shares. Do not condition only on positive providers."},{"id":"cohort_diff","parent":"cohort","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","cohort_diff"],"date":"September 10–October 3, 2026","label":"Different entry cohorts","work":"Track 2021-2024 cohorts separately and keep 2020 as a transition group.","result":"2021 is clearest; 2022 has a positive provider-count signal, 2023 a negative treatment signal, and 2024 is imprecise.","knowledge":"Report unfavorable cohorts too. Age, calendar conditions, and exposure vary together; stars alone do not test cross-cohort differences."},{"id":"inputs_current","parent":"cohort","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","inputs_current"],"date":"September 10–October 3, 2026","label":"Training and administrative inputs","work":"Follow training and staffing totals within fixed cohorts.","result":"2021 training and administrative inputs meet the 10% level, not 5%; most other input outcomes are imprecise.","knowledge":"Supportive input evidence does not separately identify net hiring, compliance costs, or efficiency mechanisms."},{"id":"robust_current","parent":"cohort","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","robust_current"],"date":"September 10–October 3, 2026","label":"Sensitivity and coverage","work":"Compare count models, exclusion of large markets, complete histories, and extension through 2025.","result":"The manuscript reports positive directions with significance sensitive to sample choices. This map summarizes those records; it does not re-estimate them.","knowledge":"Coverage and selection remain part of causal interpretation. Not every year or reasonable specification is significant."},{"id":"contribution","parent":"cohort","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","contribution"],"date":"September 10–October 3, 2026","label":"The paper's contribution","work":"Compare persistent supply from early entry cohorts with fixed incumbents and the covered market.","result":"Narrow the contribution to new cohorts' home dialysis supply rather than independent-ownership superiority or general welfare gains.","knowledge":"A workable paper often emerges by narrowing a broad question to what the data can actually support."},{"id":"state_policy","parent":"portals","kind":"repair","stage":1,"path":["interest","state","portals","state_policy"],"date":"August 4–10, 2026","label":"State laws and hospital transactions","work":"Fix six announcement cohorts, comparisons, and transaction definitions; examine pre-policy paths first.","result":"The joint pretrend test has p=0.854, but simultaneous intervals do not fit the prespecified +/-0.25 SD equivalence band. Stop before estimating post-policy effects; expected detectable effects are about 1.08 SD.","knowledge":"An insignificant pretrend test does not establish sufficient comparability."},{"id":"portal_duration","parent":"portals","kind":"reserve","stage":1,"path":["interest","state","portals","portal_duration"],"date":"August 4–10, 2026","label":"Regulatory review duration","work":"Enumerate public records and check status definitions and start and end dates.","result":"No date pair meets a common comparable review-duration definition. Retain descriptive records, but stop the cross-state duration study.","knowledge":"The number of disclosed records is not transaction incidence, and approval is not completion."},{"id":"chow_measurement","parent":"chow","kind":"evidence","stage":1,"path":["interest","state","chow","chow_measurement"],"date":"August 4–10, 2026","label":"Audit historical data versions","work":"Harmonize denominators and compare vintages, maturation periods, and facility-versus-transaction definitions.","result":"Versions and definitions change assignments. Many discrepancies lack independent record-level resolution, so the audit does not overturn a prior causal conclusion.","knowledge":"A measurement difference, its cause, and its effect on a paper's conclusion are three separate claims."},{"id":"networks_pac","parent":"networks","kind":"evidence","stage":1,"path":["interest","state","networks","networks_pac"],"date":"August 4–10, 2026","label":"The legal-buyer acquisition map","work":"Reconstruct 6,294 transaction episodes and identify 86 legal buyers with repeated acquisitions within five years.","result":"The descriptive map is feasible, but many repeat transactions reflect special legal-ownership arrangements in Texas and Indiana. Operating-control concentration is not established.","knowledge":"A useful dataset still needs a distinct question and identification to become a causal IO paper."},{"id":"networks_hhi","parent":"networks","kind":"repair","stage":1,"path":["interest","state","networks","networks_hhi"],"date":"August 4–10, 2026","label":"Common control and concentration","work":"Audit ultimate-control coverage and owner-network links for mature transactions.","result":"653 of 943 transactions have complete attribution: 69.25%, below the locked 80% requirement. Do not compute firm HHI or competition effects on that basis.","knowledge":"Transitive legal links can incorrectly combine separate operating groups."},{"id":"io_backups","parent":"state","kind":"reserve","stage":1,"path":["interest","state","io_backups"],"date":"August 4–10, 2026","label":"Early IO alternatives","work":"Register seven initial questions, with five retained as alternatives.","result":"Serial acquisitions and QIPP receive priority. Some alternatives face specific data limits; others simply are not advanced.","knowledge":"A question not pursued is not a question rejected by the data."},{"id":"io_screen","parent":"io_backups","kind":"reserve","stage":1,"path":["interest","state","io_backups","io_screen"],"date":"August 4–10, 2026","label":"How regulators screen transactions","work":"Register a question about screening rules and predicted harm.","result":"Keep as an alternative. No separate estimation or documented rejection is recovered for this question.","knowledge":"Do not invent a data failure, identification failure, or null result where the record only shows nonselection."},{"id":"io_compliance","parent":"io_backups","kind":"reserve","stage":1,"path":["interest","state","io_backups","io_compliance"],"date":"August 4–10, 2026","label":"Fixed compliance costs","work":"Register a question about buyer scale, entry, and regulatory compliance costs.","result":"Keep as an alternative rather than the priority line. No separate effect estimate or specific rejection is recovered.","knowledge":"Preserve the distinction between an untested idea and a failed test."},{"id":"io_unbundling","parent":"io_backups","kind":"reserve","stage":1,"path":["interest","state","io_backups","io_unbundling"],"date":"August 4–10, 2026","label":"Transaction splitting and thresholds","work":"Register a question about transaction packaging and behavior near reporting cutoffs.","result":"Transaction-value data are an explicit obstacle to measuring the true threshold and detecting splitting.","knowledge":"The economic threshold must be observed before testing responses around it."},{"id":"io_borders","parent":"io_backups","kind":"reserve","stage":1,"path":["interest","state","io_backups","io_borders"],"date":"August 4–10, 2026","label":"Regulatory borders and acquisitions","work":"Register a question about jurisdictional boundaries and acquisition geography.","result":"Retain as an alternative. The recovered record does not show a separate estimate or a concrete reason to reject it.","knowledge":"Unpursued branches can remain useful future leads without being relabeled as failures."},{"id":"io_auctions","parent":"io_backups","kind":"reserve","stage":1,"path":["interest","state","io_backups","io_auctions"],"date":"August 4–10, 2026","label":"Distressed health care asset auctions","work":"Register a question about bidding, exit, and asset allocation.","result":"Auction and bid data are unavailable, preventing observation of buyer competition.","knowledge":"A mechanism about bidding requires data on the competitive process, not just the winning transaction."},{"id":"stars45_staffing","parent":"stars45","kind":"repair","stage":2,"path":["interest","state","nursing","stars45","stars45_staffing"],"date":"August 10–12, 2026","label":"Ratings and nursing inputs","work":"Run a fuzzy regression discontinuity analysis and check bandwidths, state exclusions, and staffing definitions.","result":"Nursing input changes by +0.007 hours per resident-day, with a 95% interval of [-0.141, 0.156]. A stable increase is not detected.","knowledge":"An informative null can be worth preserving without supplying the market-mechanism contribution sought in this search."},{"id":"stars45_behavior","parent":"stars45","kind":"repair","stage":2,"path":["interest","state","nursing","stars45","stars45_behavior"],"date":"August 10–12, 2026","label":"Occupancy, turnover, and transactions","work":"Report four declared outcomes with multiplicity and sensitivity checks.","result":"The overall five-star label rises by 43.7 percentage points, but occupancy, nurse turnover, and 730-day ownership changes lack stable responses. Coverage also limits some outcomes.","knowledge":"Mechanical changes in a rating formula are not evidence of changed behavior; resident stocks are not admission flows."},{"id":"stars45_purelabel","parent":"stars45","kind":"repair","stage":2,"path":["interest","state","nursing","stars45","stars45_purelabel"],"date":"August 10–12, 2026","label":"A pure five-star label effect","work":"Compare rating switchers with unchanged-rating controls and check composition and balance.","result":"Only 17 ideal local four-star controls exist. The substitute group is already almost entirely five-star, so the pure-label design stops at identification.","knowledge":"A strong differential first stage does not establish comparable direct responses to the underlying inspection rating."},{"id":"stars45_market","parent":"stars45","kind":"reserve","stage":2,"path":["interest","state","nursing","stars45","stars45_market"],"date":"August 10–12, 2026","label":"Screen real market outcomes","work":"Link provider, cost-report, market, and exit data; calculate coverage and detectable effects before estimation.","result":"Admissions, competitive-market measures, exit, and beds fail the prespecified power checks. No post-policy estimates or p-values are calculated for these new outcomes.","knowledge":"Linked data may still be too uninformative to detect an economically relevant change."},{"id":"stars45_price","parent":"stars45_market","kind":"reserve","stage":2,"path":["interest","state","nursing","stars45","stars45_market","stars45_price"],"date":"August 10–12, 2026","label":"Actual transaction prices","work":"Distinguish public payments and revenues from negotiated prices.","result":"Usable negotiated-price data are unavailable, so the price branch cannot proceed.","knowledge":"Administrative reimbursement and revenue per unit are not automatically market prices."},{"id":"sff_repeated","parent":"sff","kind":"repair","stage":2,"path":["interest","state","nursing","sff","sff_repeated"],"date":"August 10–12, 2026","label":"Candidacy and operations","work":"Repair score distance, assignment, and event definitions before examining demand, transactions, exit, inputs, and quality.","result":"The historical design produces no stable market or transaction response. Later institutional checks continue to limit the candidacy interpretation.","knowledge":"Repairs made after seeing results remain exploratory; candidacy does not equal formal enhanced supervision."},{"id":"sff_dynamics","parent":"sff","kind":"repair","stage":2,"path":["interest","state","nursing","sff","sff_dynamics"],"date":"August 10–12, 2026","label":"Dynamics across 26 outcomes","work":"Freeze initial assignment and follow months -24 to +36 without dropping facilities that leave the list.","result":"14 of 22 outcomes with genuine pre-period data reject a joint pre-period test. Four exploratory paths retain signals, without establishing a strong causal result.","knowledge":"Leaving a list is not grounds for sample deletion. Within-outcome intervals do not adjust for searching across 26 outcomes."},{"id":"sff_disclosure","parent":"sff","kind":"repair","stage":2,"path":["interest","state","nursing","sff","sff_disclosure"],"date":"August 10–12, 2026","label":"First public disclosure in 2019","work":"Estimate locked local comparisons, then independently reconstruct policy history and assignment.","result":"Primary outcomes are not confirmed; narrow-window quality signals are unstable. Subsequent checks find inadequate comparability, support, and precision.","knowledge":"Reproducing who was named does not prove continuity of potential outcomes. Failed equivalence is not the same as every baseline being significantly different."},{"id":"sff_formal","parent":"sff","kind":"reserve","stage":2,"path":["interest","state","nursing","sff","sff_formal"],"date":"August 10–12, 2026","label":"Formal enhanced supervision","work":"Separate candidacy, private notices, disclosure, and formal designation; audit historical scores and revisit points.","result":"The verified facility-month running score is missing, blocking the proposed threshold-based instrumental-variable design. States also retain designation discretion.","knowledge":"A public candidate list cannot substitute for formal treatment, and the designation first stage still needs verification."},{"id":"qip_inputs","parent":"qip","kind":"repair","stage":4,"path":["interest","state","nursing","pool","qip","qip_inputs"],"date":"August 12–13, 2026","label":"Clinical inputs and finances","work":"Estimate four declared primary outcomes after the round's local-design and linkage checks.","result":"Clinical staffing intensity, unit cost, unit revenue, and operating margins show no stable detectable response.","knowledge":"Keep primary outcomes separate from later exploratory administrative-staffing leads."},{"id":"qip_burden","parent":"qip","kind":"repair","stage":4,"path":["interest","state","nursing","pool","qip","qip_burden"],"date":"August 12–13, 2026","label":"Reporting obligations and staffing","work":"Rebuild six exemption-threshold cohorts and examine first stages, bandwidths, placebo thresholds, and economic scale.","result":"The main estimate is +1.231 FTE, with a 95% interval of [-0.160, 2.622] and Holm p=0.414. Wider-window signals do not survive the key checks.","knowledge":"A strong first stage and a positive sign do not establish a reporting-burden effect."},{"id":"qip_classification","parent":"qip_burden","kind":"repair","stage":4,"path":["interest","state","nursing","pool","qip","qip_burden","qip_classification"],"date":"August 12–13, 2026","label":"Staffing categories or net hiring?","work":"Decompose administration and management; test combined inputs, persistence, exposure, and placebo dates.","result":"Some raw p-values are below 0.05 but family-adjusted results are not. Management rises while administration falls, with no combined increase or distinctive true-date response.","knowledge":"Reporting reallocation is more consistent with the evidence than identified net hiring; significant components alone do not validate a mechanism."},{"id":"core_providers_2021","parent":"cohort","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","core_providers_2021"],"date":"September 10–October 3, 2026","label":"2021: home-service sites","work":"Fix the entry cohort and regional sample; average 2021-2024 coefficients with region-stratified randomization inference.","result":"The manuscript snapshot reports +0.125 providers per region against a control mean of 0.182. It reaches 10% significance, not 5%.","knowledge":"This is the original cohort's total market contribution, including entry, composition, and subsequent operation."},{"id":"core_treatments_2021","parent":"cohort","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","core_treatments_2021"],"date":"September 10–October 3, 2026","label":"2021: home-treatment volume","work":"Aggregate Medicare home-equivalent treatments and average regional policy effects from entry through 2024.","result":"The estimate is +183.01 treatments per region against a control mean of 158.44. It reaches 10% significance, not 5%.","knowledge":"Treatment equivalents are not unique patients, and cohort growth is not necessarily net market expansion."},{"id":"cohort_2022","parent":"cohort_diff","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","cohort_diff","cohort_2022"],"date":"September 10–October 3, 2026","label":"The 2022 cohort","work":"Fix the 2022 roster and average outcomes over 2022-2024.","result":"Home-service sites rise by 0.134 per region at the 5% level. The +86.12 treatment estimate does not reach 10%.","knowledge":"Evidence differs across outcomes; do not describe both as statistically significant."},{"id":"cohort_2023","parent":"cohort_diff","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","cohort_diff","cohort_2023"],"date":"September 10–October 3, 2026","label":"The 2023 cohort","work":"Fix the 2023 roster and average 2023-2024 outcomes.","result":"Treatments fall by 90.74 per region at the 5% level. The -0.051 provider estimate does not reach 10%.","knowledge":"Retain negative results. Cohort age, calendar conditions, and exposure change together."},{"id":"cohort_2024","parent":"cohort_diff","kind":"repair","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","cohort_diff","cohort_2024"],"date":"September 10–October 3, 2026","label":"The 2024 cohort","work":"Observe the 2024 entrant cohort's supply in its first year.","result":"Providers change by -0.015 and treatments by -2.71 per region; neither reaches the 10% level.","knowledge":"A first-year outcome is not directly comparable to earlier cohorts' multiyear averages as a pure policy-phase effect."},{"id":"training_current","parent":"inputs_current","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","inputs_current","training_current"],"date":"September 10–October 3, 2026","label":"2021: training activity","work":"Use eligible full cost reports to total training treatments after entry.","result":"2021 adds 25.99 training treatments per region at 10%, not 5%. The 2023 cohort declines by 28.58 at the 5% level.","knowledge":"Training treatments are not unique trainees, completed courses, or successful home-dialysis adopters."},{"id":"admin_current","parent":"inputs_current","kind":"evidence","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","inputs_current","admin_current"],"date":"September 10–October 3, 2026","label":"2021: administrative staffing","work":"Aggregate administration and management FTE within fixed cohorts and markets.","result":"The 2021 estimate is +0.378 FTE per region; 2024 is -0.114 FTE. Both reach only the 10% level.","knowledge":"Regional totals combine entrant counts and per-facility inputs; they do not identify a pure administrative-cost mechanism."},{"id":"other_inputs_current","parent":"inputs_current","kind":"repair","stage":11,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","entry","census","home","cohort","inputs_current","other_inputs_current"],"date":"September 10–October 3, 2026","label":"Other costs and clinical inputs","work":"Track cohort expenses, stations, clinical FTE, and direct-care compensation.","result":"All four 2021 average estimates are positive, but none reaches 10%. Most other cohort input estimates are also imprecise.","knowledge":"Consistent directions are exploratory evidence, not confirmed broad input expansion."},{"id":"vascular_current","parent":"clinical","kind":"evidence","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","clinical","vascular_current"],"date":"From August 13, 2026","label":"Current vascular-access outcomes","work":"Read 2021-2024 averages and individual randomization tests from the manuscript's fixed-sample market table.","result":"The adverse index falls by 0.204 and long-term catheter share by 0.937 percentage points, both at 1%. Fistula share rises by 1.043 percentage points at 5%.","knowledge":"These are the table's individual tests. Do not import old Holm adjustments or infer overall welfare or an ownership mechanism."},{"id":"profit_current","parent":"surplus","kind":"evidence","stage":7,"path":["interest","state","nursing","pool","qip","economic","etc","ownership","welfare","surplus","profit_current"],"date":"From August 13, 2026","label":"Current market net income","work":"Compare 2021-2024 average market finances with the 2020 transition year.","result":"Aggregate net income falls by $3.834 million per region at 1%, but 2020 also shows a $3.024 million difference at 1%. Average income per treatment is not significant.","knowledge":"2020 includes policy disclosure and is not a clean pre-policy placebo. Accounting net income is not social welfare."}]}</script>
+<script>
+
+(() => {
+  const root = document.getElementById('etc-research-tree');
+  const data = JSON.parse(document.getElementById('etc-history-data').textContent);
+  const $ = id => root.querySelector('#' + id);
+  const canvas = $('tree-canvas');
+  const context = canvas.getContext('2d');
+  const plot = root.querySelector('.tree-plot');
+  const select = $('tree-node-select');
+  const hover = $('tree-hover');
+  const planeAction = $('tree-plane-action');
+  const nodes = data.nodes;
+  if (!nodes.length || !context) return;
+  const byId = new Map(nodes.map(n => [n.id, n]));
+  const main = nodes.filter(n => n.kind === 'main');
+  const children = new Map(nodes.map(n => [n.id, nodes.filter(c => c.parent === n.id)]));
+  const nodeLabel = n => n.label;
+  const colors = {};
+  const cssColor = name => {
+    const probe = document.createElement('span');
+    probe.style.color = 'var(' + name + ')';
+    probe.style.display = 'none';
+    root.appendChild(probe);
+    const color = getComputedStyle(probe).color;
+    probe.remove();
+    return color;
+  };
+  const readTheme = () => {
+    for (const [key, value] of Object.entries({main:'--viz-series-1',deep:'--viz-series-5',evidence:'--viz-series-2',repair:'--viz-series-3',reserve:'--viz-series-4',fg:'--foreground',muted:'--muted-foreground',border:'--border',bg:'--background',ring:'--ring'})) colors[key] = cssColor(value);
+  };
+  let width = 736, height = 690, pixelRatio = 1;
+  let font = '';
+  let orientation = legacyOrientation(-0.48,0.07), zoom = 1, panX = 0, panY = 0;
+  let selected = 'interest';
+  let focusActionRequested = false;
+  let planeId = null, fullView = null, viewTransition = null;
+  let planeGeometry = {cx:0,cz:0,radius:160};
+  let projected = [], labelBoxes = [];
+  let requestId = null, wheelSave = null, rotationAnimation = null;
+  let activeHover = null;
+  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  let autoRotate = !motionPreference.matches, autoFrame = null, autoTime = null, plotVisible = false;
+  const pointers = new Map();
+  let moved = false, multi = false, lastPointer = null;
+  const clamp = (x,a,b) => Math.min(b,Math.max(a,x));
+  const visibleNodes = () => planeId ? nodes.filter(n => n.stage === byId.get(planeId).stage) : nodes;
+  const cameraSnapshot = () => ({orientation:[...orientation],zoom,panX,panY});
+
+  // One turn per minute. Suspend work offscreen and pause for inspection.
+  function scheduleAutoRotation() {
+    if (!autoRotate || !plotVisible || document.hidden || planeId || autoFrame !== null) return;
+    autoFrame = requestAnimationFrame(now => {
+      autoFrame = null;
+      if (!autoRotate || !plotVisible || document.hidden || planeId) { autoTime = null; return; }
+      const elapsed = autoTime === null ? 0 : Math.min(now - autoTime, 50);
+      autoTime = now;
+      orientation = turnedOrientation(orientation, elapsed * Math.PI * 2 / 60000, 0);
+      schedule();
+      scheduleAutoRotation();
+    });
+  }
+  function setAutoRotation(on) {
+    autoRotate = on;
+    autoTime = null;
+    if (autoFrame !== null) cancelAnimationFrame(autoFrame);
+    autoFrame = null;
+    $('tree-autorotate').textContent = on ? 'Pause rotation' : 'Start rotation';
+    $('tree-autorotate').setAttribute('aria-pressed', String(on));
+    if (on) scheduleAutoRotation();
+  }
+
+  // Rotation math: camera-space increments keep both drag axes usable at every orientation.
+  function unitQuaternion(q) {
+    const length = Math.hypot(...q);
+    return q.map(value => value / length);
+  }
+  function multiplyQuaternion(a,b) {
+    const [ax,ay,az,aw] = a, [bx,by,bz,bw] = b;
+    return [
+      aw*bx + ax*bw + ay*bz - az*by,
+      aw*by - ax*bz + ay*bw + az*bx,
+      aw*bz + ax*by - ay*bx + az*bw,
+      aw*bw - ax*bx - ay*by - az*bz
+    ];
+  }
+  function legacyOrientation(yaw,pitch) {
+    return unitQuaternion(multiplyQuaternion(
+      [Math.sin(pitch/2),0,0,Math.cos(pitch/2)],
+      [0,Math.sin(yaw/2),0,Math.cos(yaw/2)]
+    ));
+  }
+  function turnedOrientation(q,horizontal,vertical) {
+    const angle = Math.hypot(horizontal,vertical);
+    if (angle === 0) return q;
+    const factor = Math.sin(angle/2)/angle;
+    const delta = [-vertical*factor,-horizontal*factor,0,Math.cos(angle/2)];
+    return unitQuaternion(multiplyQuaternion(delta,q));
+  }
+  function rotatedPoint(point,q) {
+    const [qx,qy,qz,qw] = q;
+    const tx = 2*(qy*point.z-qz*point.y);
+    const ty = 2*(qz*point.x-qx*point.z);
+    const tz = 2*(qx*point.y-qy*point.x);
+    return {
+      x:point.x+qw*tx+qy*tz-qz*ty,
+      y:point.y+qw*ty+qz*tx-qx*tz,
+      z:point.z+qw*tz+qx*ty-qy*tx
+    };
+  }
+  // End rotation math.
+
+  function stopRotationAnimation() {
+    if (rotationAnimation !== null) cancelAnimationFrame(rotationAnimation);
+    rotationAnimation = null;
+  }
+  function turnView(horizontal,vertical) {
+    viewTransition = null;
+    orientation = turnedOrientation(orientation,horizontal,vertical);
+    activeHover = null;
+    hover.hidden = true;
+    schedule();
+  }
+  function turnWithButton(horizontal,vertical) {
+    setAutoRotation(false);
+    stopRotationAnimation();
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      turnView(horizontal,vertical); saveState(); return;
+    }
+    const start = performance.now();
+    let previous = 0;
+    const advance = now => {
+      const progress = Math.min(1,(now-start)/180);
+      const eased = 1-Math.pow(1-progress,3);
+      turnView(horizontal*(eased-previous),vertical*(eased-previous));
+      previous = eased;
+      if (progress < 1) rotationAnimation = requestAnimationFrame(advance);
+      else {rotationAnimation=null;saveState();}
+    };
+    rotationAnimation = requestAnimationFrame(advance);
+  }
+
+  main.forEach((n,i) => {
+    n.x = Math.sin(i * 0.61) * 35;
+    n.y = ((main.length-1)/2 - i) * 88;
+    n.z = Math.cos(i * 0.55) * 32;
+    n.depth = 0;
+  });
+  const placeChildren = parent => {
+    const branch = children.get(parent.id).filter(n => n.kind !== 'main');
+    branch.forEach((n,i) => {
+      n.depth = parent.depth + 1;
+      const a = parent.kind === 'main'
+        ? ((i + 0.18) / Math.max(branch.length,1)) * Math.PI * 2 + parent.stage * 0.77
+        : parent.angle + ((i - (branch.length-1)/2) / Math.max(branch.length,1)) * 1.7;
+      n.angle = a;
+      const r = parent.kind === 'main' ? 235 + (i%3)*38 : 150;
+      n.x = parent.x + Math.cos(a) * r;
+      n.z = parent.z + Math.sin(a) * r;
+      n.y = parent.y + Math.sin(a*1.8) * 24 + (i%2 ? 9 : -9);
+      placeChildren(n);
+    });
+  };
+  main.forEach(placeChildren);
+
+  function populateSelect() {
+    select.replaceChildren();
+    main.forEach((stage,i) => {
+    if (planeId && stage.id !== planeId) return;
+    const group = document.createElement('optgroup');
+    group.label = String(i+1).padStart(2,'0') + ' · ' + stage.label;
+    const append = node => {
+      const option = document.createElement('option');
+      option.value = node.id;
+      option.textContent = (node.kind === 'main' ? '● ' : '  '.repeat(node.depth) + '↳ ') + nodeLabel(node);
+      group.appendChild(option);
+      children.get(node.id).filter(c => c.kind !== 'main').forEach(append);
+    };
+    append(stage);
+    select.appendChild(group);
+    });
+  }
+  function preparePlane() {
+    if (!planeId) return;
+    const layer = visibleNodes();
+    const xs = layer.map(n=>n.x), zs = layer.map(n=>n.z);
+    const cx = (Math.min(...xs)+Math.max(...xs))/2;
+    const cz = (Math.min(...zs)+Math.max(...zs))/2;
+    planeGeometry = {cx,cz,radius:Math.max(160,...layer.map(n=>Math.hypot(n.x-cx,n.z-cz)))};
+  }
+  function updateViewLabels() {
+    const trunk = planeId ? byId.get(planeId) : null;
+    const count = visibleNodes().length;
+    $('tree-plane-bar').hidden = !trunk;
+    $('tree-plane-name').textContent = trunk ? trunk.label + ' / ' + (count-1) + ' branches' : '';
+    $('tree-coverage').textContent = trunk ? 'Focused stage / ' + count + ' nodes' : main.length + ' stages / ' + (nodes.length-main.length) + ' branches';
+    canvas.setAttribute('aria-label', trunk
+      ? 'Focused 3D stage: ' + trunk.label + '. Rotate with arrow keys or drag; zoom with plus or minus. Use the selector below to read every branch.'
+      : '3D research journey. Follow arrowheads from IO and Health at the top to ETC and the paper. Rotate with arrow keys or drag; zoom with plus or minus. Use the selector below to read every node.');
+  }
+  function startViewTransition(previous) {
+    viewTransition = matchMedia('(prefers-reduced-motion: reduce)').matches ? null
+      : {from:new Map(previous.map(p=>[p.node.id,{...p}])),start:performance.now()};
+  }
+  function showPlane() {
+    const anchor = byId.get(selected);
+    if (planeId || anchor.kind !== 'main') return;
+    setAutoRotation(false);
+    const previous = projected;
+    stopRotationAnimation();
+    fullView = cameraSnapshot();
+    planeId = anchor.id;
+    preparePlane();
+    orientation = legacyOrientation(0,Math.PI/2);
+    zoom = 1; panX = 0; panY = 0;
+    activeHover = null; hover.hidden = true;
+    populateSelect(); detail();
+    startViewTransition(previous); schedule(); saveState();
+  }
+  function showAll() {
+    if (!planeId) return;
+    const previous = projected;
+    stopRotationAnimation();
+    planeId = null;
+    const camera = fullView || {orientation:legacyOrientation(-0.48,.07),zoom:1,panX:0,panY:0};
+    orientation = [...camera.orientation]; zoom = camera.zoom; panX = camera.panX; panY = camera.panY;
+    fullView = null;
+    activeHover = null; hover.hidden = true;
+    populateSelect(); detail();
+    startViewTransition(previous); schedule(); saveState();
+  }
+
+  function saveState() {}
+  function dismissFocusAction() {
+    focusActionRequested = false;
+    planeAction.hidden = true;
+    schedule();
+  }
+  function detail() {
+    const n = byId.get(selected);
+    updateViewLabels();
+    planeAction.hidden = !focusActionRequested || !!planeId || n.kind !== 'main';
+    $('tree-show-plane').setAttribute('aria-label','Focus stage: ' + n.label);
+    select.value = selected;
+    $('tree-node-title').textContent = n.label;
+    $('tree-node-status').textContent = 'Stage ' + (n.stage+1) + ' of ' + main.length + ' / ' + n.date;
+    $('tree-work').textContent = n.work;
+    $('tree-result').textContent = n.result;
+    $('tree-knowledge').textContent = n.knowledge;
+    $('tree-detail').style.borderColor = n.stage >= 6 ? colors.deep || '#345f7d' : colors.main || '#7d2222';
+    $('tree-previous').disabled = n.stage === 0;
+    $('tree-next').disabled = n.stage === main.length-1;
+    $('tree-related').replaceChildren();
+    const links = [];
+    if (n.parent && (!planeId || byId.get(n.parent).stage === n.stage)) links.push({node:byId.get(n.parent),prefix:'From: '});
+    children.get(n.id).filter(c=>!planeId || c.stage === n.stage).forEach(c=>links.push({node:c,prefix:c.kind==='main'?'Next: ':'Branch: '}));
+    $('tree-related-label').textContent = links.length ? 'Connected branches (' + links.length + ')' : 'No further branches in this stage';
+    for (const {node,prefix} of links) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = prefix + node.label;
+      button.addEventListener('click',()=>choose(node.id));
+      $('tree-related').appendChild(button);
+    }
+  }
+  function choose(id) {
+    if (!byId.has(id)) return;
+    if (planeId && byId.get(id).stage !== byId.get(planeId).stage) return;
+    setAutoRotation(false);
+    selected = id;
+    focusActionRequested = true;
+    activeHover = null;
+    hover.hidden = true;
+    detail();
+    schedule();
+    saveState();
+  }
+  function project(n) {
+    if (planeId) {
+      const point = {x:n.x-planeGeometry.cx,y:0,z:n.z-planeGeometry.cz};
+      const {x:rx,y:ry,z} = rotatedPoint(point,orientation);
+      const scale = Math.min((width-76)/(planeGeometry.radius*2+96),(height-110)/(planeGeometry.radius*2+96))*zoom;
+      return {node:n,x:width/2+rx*scale+panX,y:(height-24)/2-ry*scale+panY,z,depth:1};
+    }
+    const {x:rx,y:ry,z} = rotatedPoint(n,orientation);
+    const perspective = 1700/(1700+z);
+    const scale = Math.min((width-42)/710,(height-84)/1420) * zoom;
+    return {node:n,x:width/2+rx*perspective*scale+panX,y:(height-24)/2-ry*perspective*scale+panY,z,depth:perspective};
+  }
+  function schedule() {
+    if (requestId !== null) return;
+    requestId = requestAnimationFrame(() => {requestId=null;draw();});
+  }
+  function shape(x,y,r,kind,fill=true) {
+    context.beginPath();
+    if (kind === 'evidence') {context.moveTo(x,y-r);context.lineTo(x+r,y+r);context.lineTo(x-r,y+r);context.closePath();}
+    else if (kind === 'repair') context.rect(x-r,y-r,r*2,r*2);
+    else if (kind === 'endpoint') {context.moveTo(x,y-r*1.25);context.lineTo(x+r,y);context.lineTo(x,y+r*1.25);context.lineTo(x-r,y);context.closePath();}
+    else context.arc(x,y,r,0,Math.PI*2);
+    fill ? context.fill() : context.stroke();
+  }
+  function draw() {
+    context.setTransform(pixelRatio,0,0,pixelRatio,0,0);
+    context.clearRect(0,0,width,height);
+    context.font = font;
+    context.textBaseline = 'middle';
+    const focus = byId.get(selected);
+    const path = new Set(focus.path);
+    const adjacent = new Set([selected,focus.parent,...children.get(selected).map(n=>n.id)]);
+    projected = visibleNodes().map(project);
+    if (viewTransition) {
+      const progress = Math.min(1,(performance.now()-viewTransition.start)/280);
+      const t = 1-Math.pow(1-progress,3);
+      projected = projected.map(p=>{
+        const from = viewTransition.from.get(p.node.id);
+        if (!from) return p;
+        return {...p,x:from.x+(p.x-from.x)*t,y:from.y+(p.y-from.y)*t,z:from.z+(p.z-from.z)*t,depth:from.depth+(p.depth-from.depth)*t};
+      });
+      if (progress<1) schedule(); else viewTransition=null;
+    }
+    const screen = new Map(projected.map(p => [p.node.id,p]));
+    const edges = projected.filter(p=>screen.has(p.node.parent)).sort((a,b)=>b.z-a.z);
+    edges.forEach(p => {
+      const q = screen.get(p.node.parent);
+      const isMain = p.node.kind === 'main';
+      const onPath = path.has(p.node.id) && path.has(p.node.parent);
+      const near = adjacent.has(p.node.id) || p.node.parent === selected;
+      context.globalAlpha = isMain ? .85 : onPath ? .8 : near ? .55 : .28;
+      context.strokeStyle = isMain || onPath ? (q.node.stage >= 6 ? colors.deep : colors.main) : colors.muted;
+      context.lineWidth = isMain ? 2 : onPath ? 1.6 : 1;
+      context.setLineDash(p.node.id === 'state' ? [4,4] : []);
+      context.beginPath(); context.moveTo(q.x,q.y);
+      context.lineTo(p.x,p.y); context.stroke();
+      // Arrowheads follow the projected main path even as the map rotates.
+      if (isMain) {
+        const dx=p.x-q.x, dy=p.y-q.y, length=Math.hypot(dx,dy);
+        if (length>18) {
+          const ux=dx/length, uy=dy/length, x=q.x+dx*.66, y=q.y+dy*.66;
+          context.fillStyle=context.strokeStyle;
+          context.beginPath();context.moveTo(x+ux*5,y+uy*5);
+          context.lineTo(x-ux*4-uy*4,y-uy*4+ux*4);
+          context.lineTo(x-ux*4+uy*4,y-uy*4-ux*4);
+          context.closePath();context.fill();
+        }
+      }
+    });
+    context.setLineDash([]);
+    projected.sort((a,b)=>b.z-a.z).forEach(p => {
+      const n = p.node;
+      const isMain = n.kind === 'main';
+      const near = adjacent.has(n.id) || n.id === activeHover;
+      const r = (n.id === 'etc' ? 7 : isMain ? 5.6 : near ? 4.6 : 3.4) * clamp(p.depth,.8,1.2);
+      p.radius = r;
+      context.globalAlpha = near || isMain ? 1 : clamp(.7-(p.z/1700),.45,.85);
+      const nodeColor = isMain && n.stage >= 6 ? colors.deep : colors[n.kind];
+      context.fillStyle = nodeColor;
+      context.strokeStyle = nodeColor;
+      context.lineWidth = 1.4;
+      shape(p.x,p.y,r,n.id === 'cohort' ? 'endpoint' : n.kind,n.kind !== 'reserve');
+      if (n.id === selected) {
+        context.globalAlpha = 1;
+        context.strokeStyle = colors.ring;
+        context.lineWidth = 1.5;
+        context.beginPath();context.arc(p.x,p.y,r+4,0,Math.PI*2);context.stroke();
+      }
+    });
+    context.globalAlpha = 1;
+    labelBoxes=[];
+    if (!planeAction.hidden) {
+      const p = screen.get(selected), aw = planeAction.offsetWidth, ah = planeAction.offsetHeight;
+      const x = clamp(p.x+12,4,width-aw-4), y = clamp(p.y+26,30,height-ah-8);
+      planeAction.style.left=x+'px'; planeAction.style.top=y+'px';
+      labelBoxes.push({x:x-4,y:y-4,w:aw+8,h:ah+8,id:null});
+    }
+    const priorities = [screen.get(selected),screen.get('interest'),screen.get('etc'),screen.get('cohort'),...main.map(n=>screen.get(n.id)),...children.get(selected).map(n=>screen.get(n.id))];
+    if (activeHover) priorities.unshift(screen.get(activeHover));
+    const used = new Set();
+    for (const p of priorities) {
+      if (!p || used.has(p.node.id)) continue;
+      used.add(p.node.id);
+      if (p.x < 0 || p.x > width || p.y < 22 || p.y > height-40) continue;
+      const n = p.node;
+      const label = n.id === 'interest' ? 'START: IO & Health' : n.id === 'etc' ? 'IDEA: ETC' : nodeLabel(n);
+      context.font = (n.id === selected ? '500 ' : '400 ') + font.replace(/^\d+\s+/, '');
+      const textWidth = context.measureText(label).width;
+      const h = parseFloat(getComputedStyle(root.querySelector('.tree-font-probe')).fontSize)+8;
+      const w = textWidth+10;
+      const primaryRight = n.stage%2 === 0;
+      const candidates = [
+        {x:primaryRight?p.x+12:p.x-12-w,y:p.y-h/2},
+        {x:primaryRight?p.x-12-w:p.x+12,y:p.y-h/2},
+        {x:p.x-w/2,y:p.y-14-h},
+        {x:p.x-w/2,y:p.y+14}
+      ];
+      let box = candidates.find(b => b.x>=3 && b.x+w<=width-3 && b.y>=22 && b.y+h<=height-35 && !labelBoxes.some(o=>b.x<o.x+o.w+4 && b.x+w+4>o.x && b.y<o.y+o.h+3 && b.y+h+3>o.y));
+      if (!box) continue;
+      box={...box,w,h,id:n.id};
+      labelBoxes.push(box);
+      context.globalAlpha=.93;
+      context.fillStyle=colors.bg;
+      context.fillRect(box.x,box.y,box.w,box.h);
+      context.globalAlpha=1;
+      context.fillStyle=colors.fg;
+      context.fillText(label,box.x+5,box.y+h/2);
+    }
+    context.font=font;
+  }
+  function resize() {
+    width = plot.clientWidth;
+    height = plot.clientHeight;
+    pixelRatio = Math.min(window.devicePixelRatio || 1,2);
+    canvas.width = Math.round(width*pixelRatio);
+    canvas.height = Math.round(height*pixelRatio);
+    const textStyle = getComputedStyle(root.querySelector('.tree-font-probe'));
+    font = '400 ' + textStyle.fontSize + ' ' + textStyle.fontFamily;
+    readTheme();
+    schedule();
+  }
+  function local(event) {
+    const rect=canvas.getBoundingClientRect();
+    return {x:event.clientX-rect.left,y:event.clientY-rect.top};
+  }
+  function hit(point) {
+    const trunkTarget = projected.filter(p=>p.node.kind === 'main')
+      .map(p=>({id:p.node.id,distance:Math.hypot(p.x-point.x,p.y-point.y)}))
+      .sort((a,b)=>a.distance-b.distance)[0];
+    if (trunkTarget && trunkTarget.distance < (matchMedia('(pointer:coarse)').matches?24:12)) return trunkTarget.id;
+    const label = labelBoxes.find(b=>b.id && point.x>=b.x && point.x<=b.x+b.w && point.y>=b.y && point.y<=b.y+b.h);
+    if (label) return label.id;
+    let nearest=null, distance=matchMedia('(pointer:coarse)').matches?26:19;
+    for (const p of projected) {
+      const d=Math.hypot(p.x-point.x,p.y-point.y);
+      if(d<distance) {distance=d;nearest=p.node.id;}
+    }
+    return nearest;
+  }
+  canvas.addEventListener('pointerdown',event=>{
+    setAutoRotation(false);
+    stopRotationAnimation();
+    viewTransition = null;
+    const p=local(event);
+    if (!hit(p)) dismissFocusAction();
+    pointers.set(event.pointerId,p);
+    if(pointers.size===1) {moved=false;multi=false;lastPointer=p;}
+    else {multi=true;moved=true;}
+    canvas.setPointerCapture(event.pointerId);
+    canvas.classList.add('is-dragging');
+    hover.hidden=true;
+  });
+  canvas.addEventListener('pointermove',event=>{
+    const point=local(event);
+    if(pointers.has(event.pointerId)) {
+      const old=pointers.get(event.pointerId);
+      const before=[...pointers.values()];
+      pointers.set(event.pointerId,point);
+      const dx=point.x-old.x,dy=point.y-old.y;
+      if(lastPointer && Math.hypot(point.x-lastPointer.x,point.y-lastPointer.y)>5) moved=true;
+      if(pointers.size>1) {
+        const after=[...pointers.values()];
+        const d0=Math.hypot(before[0].x-before[1].x,before[0].y-before[1].y);
+        const d1=Math.hypot(after[0].x-after[1].x,after[0].y-after[1].y);
+        if(d0>4) zoom=clamp(zoom*d1/d0,.65,4.5);
+        panX+=dx/2;panY+=dy/2;
+      } else if(event.shiftKey || event.buttons===2) {panX+=dx;panY+=dy;}
+      else turnView(dx*.007,dy*.007);
+      schedule();
+      return;
+    }
+    const found=hit(point);
+    if(found!==activeHover) {activeHover=found;schedule();}
+    if(!found) {hover.hidden=true;return;}
+    const hovered = byId.get(found);
+    hover.textContent=nodeLabel(hovered);
+    hover.hidden=false;
+    const hw=hover.offsetWidth;
+    hover.style.left=clamp(point.x+12,4,width-hw-4)+'px';
+    hover.style.top=clamp(point.y-32,2,height-32)+'px';
+  });
+  function pointerEnd(event) {
+    const wasDown=pointers.has(event.pointerId);
+    pointers.delete(event.pointerId);
+    if(wasDown && !moved && !multi && event.type!=='pointercancel') {
+      const found=hit(local(event));
+      if(found) choose(found); else dismissFocusAction();
+    }
+    if(!pointers.size) {canvas.classList.remove('is-dragging');if(wasDown && moved) saveState();}
+  }
+  canvas.addEventListener('pointerup',pointerEnd);
+  canvas.addEventListener('pointercancel',pointerEnd);
+  canvas.addEventListener('pointerleave',()=>{if(!pointers.size){activeHover=null;hover.hidden=true;schedule();}});
+  canvas.addEventListener('contextmenu',event=>event.preventDefault());
+  document.addEventListener('pointerdown',event=>{
+    if(event.target !== canvas && !planeAction.contains(event.target)) dismissFocusAction();
+  });
+  root.addEventListener('keydown',event=>{
+    if(event.key === 'Escape') dismissFocusAction();
+  });
+  canvas.addEventListener('wheel',event=>{
+    if (!event.ctrlKey && !event.metaKey) return;
+    setAutoRotation(false);
+    event.preventDefault();
+    viewTransition = null;
+    const point=local(event);
+    const old=zoom;
+    zoom=clamp(zoom*Math.exp(-event.deltaY*.0011),.65,4.5);
+    const ratio=zoom/old;
+    panX=(point.x-width/2)-(point.x-width/2-panX)*ratio;
+    panY=(point.y-(height-24)/2)-(point.y-(height-24)/2-panY)*ratio;
+    hover.hidden=true;
+    schedule();
+    clearTimeout(wheelSave);wheelSave=setTimeout(saveState,220);
+  },{passive:false});
+  function resetView() {
+    setAutoRotation(false);
+    stopRotationAnimation();viewTransition=null;planeId=null;fullView=null;
+    orientation=legacyOrientation(-0.48,0.07);zoom=1;panX=0;panY=0;
+    activeHover=null;hover.hidden=true;populateSelect();detail();schedule();
+  }
+  function goToStage(index) {
+    if(index<0 || index>=main.length)return;
+    if(planeId)showAll();
+    choose(main[index].id);
+  }
+  $('tree-start').addEventListener('click',()=>{resetView();choose('interest');});
+  $('tree-etc').addEventListener('click',()=>{resetView();choose('etc');});
+  $('tree-reset').addEventListener('click',resetView);
+  $('tree-autorotate').addEventListener('click',()=>{
+    if (planeId) showAll();
+    setAutoRotation(!autoRotate);
+  });
+  $('tree-previous').addEventListener('click',()=>goToStage(byId.get(selected).stage-1));
+  $('tree-next').addEventListener('click',()=>goToStage(byId.get(selected).stage+1));
+  $('tree-zoom-in').addEventListener('click',()=>{setAutoRotation(false);zoom=clamp(zoom*1.2,.65,4.5);schedule();});
+  $('tree-zoom-out').addEventListener('click',()=>{setAutoRotation(false);zoom=clamp(zoom/1.2,.65,4.5);schedule();});
+  canvas.addEventListener('keydown',event=>{
+    if (['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','+','=','-','Home'].includes(event.key)) setAutoRotation(false);
+    const turns={ArrowLeft:[-Math.PI/8,0],ArrowRight:[Math.PI/8,0],ArrowUp:[0,-Math.PI/8],ArrowDown:[0,Math.PI/8]};
+    if(turns[event.key]){event.preventDefault();turnWithButton(...turns[event.key]);}
+    else if(event.key==='+' || event.key==='='){event.preventDefault();zoom=clamp(zoom*1.2,.65,4.5);schedule();}
+    else if(event.key==='-'){event.preventDefault();zoom=clamp(zoom/1.2,.65,4.5);schedule();}
+    else if(event.key==='Home'){event.preventDefault();resetView();choose('interest');}
+  });
+  select.addEventListener('change',()=>choose(select.value));
+  $('tree-show-plane').addEventListener('click',showPlane);
+  $('tree-show-all').addEventListener('click',showAll);
+  const turnStep = Math.PI/4;
+  [['tree-turn-up',0,-turnStep],['tree-turn-down',0,turnStep],['tree-turn-left',-turnStep,0],['tree-turn-right',turnStep,0]].forEach(([id,horizontal,vertical])=>{
+    $(id).addEventListener('click',()=>turnWithButton(horizontal,vertical));
+  });
+  const themeObserver=new MutationObserver(()=>{readTheme();schedule();});
+  themeObserver.observe(document.documentElement,{attributes:true,attributeFilter:['class','style','data-theme']});
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{readTheme();schedule();});
+  new ResizeObserver(resize).observe(plot);
+  new IntersectionObserver(entries => {
+    plotVisible = entries.some(entry => entry.isIntersecting);
+    autoTime = null;
+    if (!plotVisible && autoFrame !== null) { cancelAnimationFrame(autoFrame); autoFrame = null; }
+    scheduleAutoRotation();
+  }).observe(plot);
+  document.addEventListener('visibilitychange',()=>{
+    autoTime=null;
+    if(document.hidden && autoFrame!==null){cancelAnimationFrame(autoFrame);autoFrame=null;}
+    scheduleAutoRotation();
+  });
+  motionPreference.addEventListener('change',event=>{if(event.matches)setAutoRotation(false);});
+  populateSelect();
+  detail();resize();
+  setAutoRotation(autoRotate);
+})();
+</script></main></body></html>
