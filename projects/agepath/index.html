@@ -70,6 +70,7 @@ select { width: 100%; border: 1px solid var(--line); background: var(--white); b
 .benchmark-input { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; margin-top: 9px; color: var(--muted); font-size: 15px; }
 .benchmark-input select { width: auto; max-width: 130px; min-height: 32px; padding: 2px 24px 2px 7px; color: var(--blue); }
 .units { color: var(--muted); font-size: 15px; margin: 16px 0 22px; }
+.benchmark-definition { color: var(--muted); font-size: 16px; line-height: 1.65; margin: 0 0 22px; }
 .chart-panel { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px 16px; }
 .chart-panel h2 { margin-bottom: 14px; }
 .chart-actions { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -230,7 +231,7 @@ svg text { font-family: var(--sans); }
           <p class="metric-value" id="truth-value">—</p>
         </article>
         <article class="metric">
-          <h2 data-i18n="pointLabel">Single-effect benchmark</h2>
+          <h2 data-i18n="pointLabel">Benchmark NPV</h2>
           <p class="metric-value" id="point-value">—</p>
           <div class="benchmark-input">
             <label for="benchmark-age" data-i18n="using">Using</label>
@@ -239,6 +240,7 @@ svg text { font-family: var(--sans); }
         </article>
       </div>
       <p class="units">2000 USD per person</p>
+      <p class="benchmark-definition">Benchmark NPV is the present value of lifetime earnings changes projected from the selected schooling effect, using the earnings schedule of <a href="https://doi.org/10.1093/qje/qjaa006" target="_blank" rel="noopener noreferrer">Hendren and Sprung-Keyser (2020)<span class="sr-only"> (opens in a new tab)</span></a>.</p>
       <div class="chart-panel">
         <h2 data-i18n="chartTitle">Schooling over the life cycle</h2>
         <div class="chart-actions">
