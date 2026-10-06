@@ -74,7 +74,7 @@ summary { cursor: pointer; color: var(--link); }
     <div class="toolbar">
       <select id="group" aria-label="Choose a data component"><option value="all">All data components</option></select>
       <select id="pick" aria-label="Choose a source or component"><option value="">Choose a source or component…</option></select>
-      <button id="rotate" aria-pressed="true">Pause rotation</button>
+      <button id="rotate" aria-pressed="false">Start rotation</button>
       <button id="back" disabled>Back to overview</button>
       <details class="view-options"><summary>View options</summary><div><button id="core" aria-pressed="false">Main data &amp; validation</button><button id="labels" aria-pressed="true">Labels: on</button></div></details>
     </div>
@@ -153,7 +153,7 @@ $('source-count').textContent=G.counts.sources;$('back').disabled=true;$('core')
 
 // Pause for reading and interaction, and do no animation work off screen.
 const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
-let rotating = !motionPreference.matches, mapVisible = false, lastFrame = null;
+let rotating = false, mapVisible = false, lastFrame = null;
 function setRotation(on) {
   rotating = on; lastFrame = null;
   $('rotate').textContent = rotating ? 'Pause rotation' : 'Start rotation';
