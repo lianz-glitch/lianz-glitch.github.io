@@ -1,0 +1,527 @@
+{
+  "version": "2026-10-08-l3-point-fit",
+  "scope": "Eight revised pooled L3 applications; cannabis is education-channel only",
+  "global_optimality_certificate": false,
+  "cases": [
+    {
+      "case": 1,
+      "policy": "Florida Student Access Grant",
+      "method": "Constrained minimum distance with fixed equal weights",
+      "L2_exact": true,
+      "found_minimizers": 1,
+      "NPV": 13837.519241731568,
+      "WTP": 11267.495776632271,
+      "net_public_cost": 1027.2500731531704,
+      "MVPF": 10.968600607684946,
+      "price_year": "2000",
+      "rmse": 0.0102420203711569,
+      "residual_unit": "schooling-equivalent years",
+      "residuals": [
+        {
+          "label": "source_lag_1",
+          "target": 0.04575,
+          "fitted": 0.0560911715469907,
+          "residual": 0.0103411715469907,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_lag_2",
+          "target": 0.111083333333333,
+          "fitted": 0.1050237030842491,
+          "residual": -0.0060596302490838,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_lag_3",
+          "target": 0.160291666666667,
+          "fitted": 0.1468347299899415,
+          "residual": -0.0134569366767254,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_lag_4",
+          "target": 0.181916666666667,
+          "fitted": 0.1819166666666669,
+          "residual": -5.551115123125783e-17,
+          "constraint_status": "L2_EXACT"
+        },
+        {
+          "label": "first_semester_age18.5",
+          "target": 0.0147916666666666,
+          "fitted": 0.0289248479778461,
+          "residual": 0.0141331813111794,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        }
+      ]
+    },
+    {
+      "case": 5,
+      "policy": "Wisconsin Scholars Grant",
+      "method": "Constrained minimum distance with fixed equal weights",
+      "L2_exact": true,
+      "found_minimizers": 1,
+      "NPV": 3583.9906127022887,
+      "WTP": 8975.465577680272,
+      "net_public_cost": 6376.500078836316,
+      "MVPF": 1.4075849551809707,
+      "price_year": "2009",
+      "rmse": 0.0158890286129938,
+      "residual_unit": "schooling-equivalent years",
+      "residuals": [
+        {
+          "label": "cohort1_cumulative_credits",
+          "target": 0.0375,
+          "fitted": 0.0684279106072081,
+          "residual": 0.0309279106072081,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "completeness_annual_credit_flows_1",
+          "target": 0.0208333333333333,
+          "fitted": 0.0259378248982962,
+          "residual": 0.0051044915649629,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "completeness_annual_credit_flows_2",
+          "target": 0.0083333333333333,
+          "fitted": 0.0237084224762553,
+          "residual": 0.015375089142922,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "completeness_annual_credit_flows_3",
+          "target": 0.0041666666666666,
+          "fitted": 0.0187816632326565,
+          "residual": 0.0146149965659899,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "completeness_annual_credit_flows_4",
+          "target": 0.0166666666666666,
+          "fitted": 0.0373302475337213,
+          "residual": 0.0206635808670547,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "completeness_annual_credit_flows_5",
+          "target": 0.0416666666666666,
+          "fitted": 0.0279376262043768,
+          "residual": -0.0137290404622897,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "completeness_annual_credit_flows_6",
+          "target": 0.0208333333333333,
+          "fitted": 0.0160763152514804,
+          "residual": -0.0047570180818528,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "pooled_cohorts23_cumulative_credits",
+          "target": 0.0875,
+          "fitted": 0.0733060313638391,
+          "residual": -0.0141939686361608,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "retained_source_operator",
+          "target": 0.0717715231788079,
+          "fitted": 0.0717715231788078,
+          "residual": -4.163336342344337e-17,
+          "constraint_status": "L2_EXACT"
+        }
+      ]
+    },
+    {
+      "case": 6,
+      "policy": "Kalamazoo Promise",
+      "method": "Constrained minimum distance with fixed equal weights",
+      "L2_exact": true,
+      "found_minimizers": 1,
+      "NPV": 54197.82679632391,
+      "WTP": 58802.479211801634,
+      "net_public_cost": 16289.063617099937,
+      "MVPF": 3.6099361261056138,
+      "price_year": "2012",
+      "rmse": 0.0124459030758554,
+      "residual_unit": "schooling-equivalent years",
+      "residuals": [
+        {
+          "label": "retained_source_operator",
+          "target": 0.273333333333333,
+          "fitted": 0.2733333333333334,
+          "residual": 4.440892098500626e-16,
+          "constraint_status": "L2_EXACT"
+        },
+        {
+          "label": "two_year_credits",
+          "target": 0.1348333333333333,
+          "fitted": 0.1228535936277683,
+          "residual": -0.0119797397055649,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "three_year_credits",
+          "target": 0.1795416666666666,
+          "fitted": 0.1974633671079662,
+          "residual": 0.0179217004412995,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        }
+      ]
+    },
+    {
+      "case": 17,
+      "policy": "Public-college spending",
+      "method": "Constrained minimum distance with fixed equal weights",
+      "L2_exact": true,
+      "found_minimizers": 1,
+      "NPV": 8581.029179984205,
+      "WTP": 7573.870856031556,
+      "net_public_cost": 300.17434017297944,
+      "MVPF": 25.23157326394725,
+      "price_year": "2001",
+      "rmse": 0.001110116844035,
+      "residual_unit": "schooling-equivalent years",
+      "residuals": [
+        {
+          "label": "retained_source_operator",
+          "target": 0.0460125809773735,
+          "fitted": 0.0460125809773739,
+          "residual": 4.3021142204224816e-16,
+          "constraint_status": "L2_EXACT"
+        },
+        {
+          "label": "institution_event_t0",
+          "target": 0.0050406575196834,
+          "fitted": 0.0062351287043438,
+          "residual": 0.0011944711846604,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "institution_event_t1",
+          "target": 0.0131985637686448,
+          "fitted": 0.0112387972766812,
+          "residual": -0.0019597664919636,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "institution_event_t2",
+          "target": 0.0140110381714885,
+          "fitted": 0.0138452733574878,
+          "residual": -0.0001657648140006,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "institution_event_t3",
+          "target": 0.0137623215175568,
+          "fitted": 0.0146933816388614,
+          "residual": 0.0009310601213046,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        }
+      ]
+    },
+    {
+      "case": 19,
+      "policy": "Texas community-college tuition",
+      "method": "Constrained minimum distance with fixed equal weights",
+      "L2_exact": true,
+      "found_minimizers": 1,
+      "NPV": 13120.84341676608,
+      "WTP": 10879.963213710853,
+      "net_public_cost": -83.9449938923326,
+      "MVPF": "Self-financing",
+      "price_year": "2012",
+      "rmse": 0.0038809953000562,
+      "residual_unit": "schooling-equivalent years",
+      "residuals": [
+        {
+          "label": "source_age_18",
+          "target": 0.03155,
+          "fitted": 0.038841472458396,
+          "residual": 0.007291472458396,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_age_19",
+          "target": 0.07755,
+          "fitted": 0.0782642840401122,
+          "residual": 0.0007142840401122,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_age_20",
+          "target": 0.1127499999999999,
+          "fitted": 0.1142908457073872,
+          "residual": 0.0015408457073872,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_age_21",
+          "target": 0.14565,
+          "fitted": 0.1448713771861971,
+          "residual": -0.0007786228138028,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_age_22",
+          "target": 0.17215,
+          "fitted": 0.1694014925221125,
+          "residual": -0.0027485074778874,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_age_23",
+          "target": 0.18725,
+          "fitted": 0.1881882763483737,
+          "residual": 0.0009382763483737,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_age_24",
+          "target": 0.20945,
+          "fitted": 0.2020064720052321,
+          "residual": -0.0074435279947678,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "source_age_26",
+          "target": 0.21845,
+          "fitted": 0.2184500000000007,
+          "residual": 6.661338147750939e-16,
+          "constraint_status": "L2_EXACT"
+        }
+      ]
+    },
+    {
+      "case": 21,
+      "policy": "Tuition caps and freezes",
+      "method": "Constrained minimum distance with fixed equal weights",
+      "L2_exact": true,
+      "found_minimizers": 1,
+      "NPV": -2985.1551544920662,
+      "WTP": -1205.9688017451392,
+      "net_public_cost": 1146.069516103221,
+      "MVPF": -1.0522649671771946,
+      "price_year": "2001",
+      "rmse": 0.0021351530612865,
+      "residual_unit": "schooling-equivalent years",
+      "residuals": [
+        {
+          "label": "retained_source_operator",
+          "target": 0.0004605186511007,
+          "fitted": 0.000460518651101,
+          "residual": 3.828317871046316e-16,
+          "constraint_status": "L2_EXACT"
+        },
+        {
+          "label": "institution_event_t0",
+          "target": -0.0009210373022014,
+          "fitted": 0.0011540135941774,
+          "residual": 0.0020750508963788,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "institution_event_t1",
+          "target": 0.0037992788715809,
+          "fitted": 0.0009941043954677,
+          "residual": -0.0028051744761131,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "institution_event_t2",
+          "target": 0.0017845097730152,
+          "fitted": -0.0001256221311536,
+          "residual": -0.0019101319041688,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "institution_event_t3",
+          "target": -0.004202232691294,
+          "fitted": -0.0015619772073902,
+          "residual": 0.0026402554839037,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        }
+      ]
+    },
+    {
+      "case": 37,
+      "policy": "Tennessee Promise",
+      "method": "Constrained minimum distance with fixed equal weights",
+      "L2_exact": true,
+      "found_minimizers": 1,
+      "NPV": 113936.10126991084,
+      "WTP": 86437.02263204173,
+      "net_public_cost": -14831.386330176818,
+      "MVPF": "Self-financing",
+      "price_year": "2021 (reconstruction convention)",
+      "rmse": 0.0035250556037125,
+      "residual_unit": "probability",
+      "residuals": [
+        {
+          "label": "ce:C_18_19",
+          "target": 0.035,
+          "fitted": 0.0367663334736613,
+          "residual": 0.0017663334736613,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ce:C_19_20",
+          "target": 0.032,
+          "fitted": 0.0268070653434717,
+          "residual": -0.0051929346565282,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ce:C_20_21",
+          "target": 0.025,
+          "fitted": 0.0295092432370221,
+          "residual": 0.0045092432370221,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ce:C_21_22",
+          "target": 0.027,
+          "fitted": 0.0333477981536224,
+          "residual": 0.0063477981536224,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ce:C_22_23",
+          "target": 0.028,
+          "fitted": 0.0346732594146383,
+          "residual": 0.0066732594146383,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ce:C_23_24",
+          "target": 0.035,
+          "fitted": 0.035,
+          "residual": 2.775557561562892e-17,
+          "constraint_status": "L2_EXACT"
+        },
+        {
+          "label": "aa:A_18_19",
+          "target": 0.002,
+          "fitted": 0.0075562253008212,
+          "residual": 0.0055562253008212,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "aa:A_19_20",
+          "target": 0.014,
+          "fitted": 0.016256029362338,
+          "residual": 0.002256029362338,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "aa:A_20_21",
+          "target": 0.031,
+          "fitted": 0.0251788178767873,
+          "residual": -0.0058211821232126,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "aa:A_21_22",
+          "target": 0.026,
+          "fitted": 0.0283683005943146,
+          "residual": 0.0023683005943146,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "aa:A_22_23",
+          "target": 0.029,
+          "fitted": 0.0292797904561863,
+          "residual": 0.0002797904561863,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "aa:A_23_24",
+          "target": 0.04,
+          "fitted": 0.0399999999999999,
+          "residual": -2.0816681711721685e-17,
+          "constraint_status": "L2_EXACT"
+        },
+        {
+          "label": "ba:B_18_19",
+          "target": -0.001,
+          "fitted": -0.0002727927670903,
+          "residual": 0.0007272072329096,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ba:B_19_20",
+          "target": 0.001,
+          "fitted": -0.0007626137326796,
+          "residual": -0.0017626137326796,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ba:B_20_21",
+          "target": 1e-05,
+          "fitted": -0.0014095263979554,
+          "residual": -0.0014195263979554,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ba:B_21_22",
+          "target": -0.002,
+          "fitted": 0.0002798552731432,
+          "residual": 0.0022798552731432,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ba:B_22_23",
+          "target": 0.012,
+          "fitted": 0.0105722177650738,
+          "residual": -0.0014277822349261,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "ba:B_23_24",
+          "target": 0.027,
+          "fitted": 0.027,
+          "residual": 2.4286128663675305e-17,
+          "constraint_status": "L2_EXACT"
+        }
+      ]
+    },
+    {
+      "case": 41,
+      "policy": "Cannabis legalization: education channel",
+      "method": "Constrained minimum distance with fixed equal weights",
+      "L2_exact": true,
+      "found_minimizers": 1,
+      "NPV": -3421.319512904381,
+      "WTP": -2354.4781489017264,
+      "net_public_cost": 47.018032671679634,
+      "MVPF": -50.07606688571423,
+      "price_year": "2000",
+      "rmse": 0.0060888798581789,
+      "residual_unit": "schooling-equivalent years",
+      "residuals": [
+        {
+          "label": "BA_four_year_bridge",
+          "target": -0.032,
+          "fitted": -0.026976148181701,
+          "residual": 0.0050238518182989,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "BA_five_year_bridge",
+          "target": -0.022,
+          "fitted": -0.0312727712518849,
+          "residual": -0.0092727712518849,
+          "constraint_status": "ADDITIONAL_POINT_TARGET"
+        },
+        {
+          "label": "BA_six_year_bridge",
+          "target": -0.036,
+          "fitted": -0.0359999999999995,
+          "residual": 4.0939474033052647e-16,
+          "constraint_status": "L2_EXACT"
+        }
+      ]
+    }
+  ]
+}
