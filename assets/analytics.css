@@ -4,30 +4,10 @@
   font: 0.875rem/1.4 system-ui, sans-serif;
 }
 
-.site-privacy-link a,
-.site-analytics-prompt a {
+.site-privacy-link a {
   color: #7d2222;
   text-decoration: underline;
   text-underline-offset: 0.15em;
-}
-
-.site-analytics-prompt {
-  position: fixed;
-  z-index: 20;
-  inset: auto 0.75rem 0.75rem auto;
-  box-sizing: border-box;
-  width: min(24rem, calc(100% - 1.5rem));
-  padding: 0.8rem 1rem;
-  border: 1px solid #d8d0ca;
-  border-radius: 0.5rem;
-  background: #fff;
-  color: #222;
-  box-shadow: 0 2px 12px #2418111f;
-  font: 0.875rem/1.45 system-ui, sans-serif;
-}
-
-.site-analytics-prompt p {
-  margin: 0 0 0.65rem;
 }
 
 .site-analytics-actions {
@@ -54,8 +34,4 @@
 .site-analytics-actions button:focus-visible {
   outline: 2px solid #7d2222;
   outline-offset: 2px;
-}
-
-@media print {
-  .site-analytics-prompt { display: none; }
 }

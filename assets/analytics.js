@@ -22,32 +22,21 @@
     // A choice still works on the current page when browser storage is unavailable.
   }
 
-  const prompt = document.createElement('section');
-  prompt.className = 'site-analytics-prompt';
-  prompt.setAttribute('aria-label', 'Optional website analytics');
-  prompt.innerHTML = `
-    <p>Allow Google Analytics to measure site visits and clicks on CV and paper links?
-      <a>Privacy details</a></p>
-    <div class="site-analytics-actions">
-      <button type="button" data-choice="allow">Allow analytics</button>
-      <button type="button" data-choice="decline">Decline</button>
-    </div>`;
-  const privacyLink = document.querySelector('.site-privacy-link a');
-  if (!settings && privacyLink) prompt.querySelector('a').href = privacyLink.href;
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
 
   function startAnalytics() {
-    if (tagLoaded) return;
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
     gtag('consent', 'default', {
       analytics_storage: 'denied',
       ad_storage: 'denied',
       ad_user_data: 'denied',
       ad_personalization: 'denied'
     });
-    gtag('consent', 'update', { analytics_storage: 'granted' });
+    // Apply analytics cookies automatically to U.S. traffic. Keep the default cookieless elsewhere.
+    gtag('consent', 'default', { analytics_storage: 'granted', region: ['US'] });
+    if (preference === 'allow') gtag('consent', 'update', { analytics_storage: 'granted' });
     gtag('js', new Date());
     gtag('config', measurementId, {
       allow_google_signals: false,
@@ -73,22 +62,21 @@
 
   function applyPreference() {
     if (liveSite) {
-      window[optOut] = preference !== 'allow';
-      if (preference === 'allow') startAnalytics();
-      else clearAnalyticsCookies();
+      window[optOut] = preference === 'decline';
+      if (preference === 'decline') clearAnalyticsCookies();
+      else if (!tagLoaded) startAnalytics();
+      else if (preference === 'allow') gtag('consent', 'update', { analytics_storage: 'granted' });
     }
-    prompt.hidden = preference !== null;
     if (settings) {
       const status = {
         allow: 'Analytics allowed in this browser.',
         decline: 'Analytics declined in this browser.'
       };
-      settings.querySelector('[role="status"]').textContent = status[preference] || 'Analytics is off until you allow it.';
+      settings.querySelector('[role="status"]').textContent = status[preference] || 'Using the default settings described above.';
     }
   }
 
-  const controls = settings || prompt;
-  controls.addEventListener('click', event => {
+  settings?.addEventListener('click', event => {
     const button = event.target.closest('button[data-choice]');
     if (!button) return;
     preference = button.dataset.choice;
@@ -98,7 +86,6 @@
       // Browser storage is optional for the current page.
     }
     applyPreference();
-    if (!settings) privacyLink?.focus({ preventScroll: true });
   });
   window.addEventListener('storage', event => {
     if (event.key !== preferenceKey && event.key !== null) return;
@@ -108,5 +95,4 @@
 
   applyPreference();
   if (settings) settings.hidden = false;
-  else document.body.append(prompt);
 })();
