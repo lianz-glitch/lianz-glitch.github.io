@@ -187,6 +187,8 @@ svg text { font-family: var(--sans); }
   .chart-panel, .metrics, .details-section details { break-inside: avoid; }
 }
 </style>
+  <link rel="stylesheet" href="../../assets/analytics.css">
+  <script defer src="../../assets/analytics.js" data-andyeconlab-analytics></script>
 </head>
 <body>
 <a class="skip" href="#results">Skip to results</a>
@@ -715,4 +717,5 @@ controls();initWorker();compute();
 window.AgePath=Object.freeze({version:D.version,engine:E,data:D,getState:()=>structuredClone(state),getResult:()=>result?structuredClone(result):null,isBusy:()=>busy,parseAges});
 })();
 </script>
+  <div class="site-privacy-link"><a href="../../privacy.html">Privacy &amp; analytics</a></div>
 </body></html>

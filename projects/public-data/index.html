@@ -78,7 +78,9 @@ summary { cursor: pointer; color: var(--link); }
   .side { height: auto; max-height: 440px; border-left: 0; border-top: 1px solid var(--line); padding: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
-</style></head><body><header class="map-header"><a href="../../ai-economics.html">AI for Public Data</a><h1>Payment Reform: From public records to research data</h1></header>
+</style>  <link rel="stylesheet" href="../../assets/analytics.css">
+  <script defer src="../../assets/analytics.js" data-andyeconlab-analytics></script>
+</head><body><header class="map-header"><a href="../../ai-economics.html">AI for Public Data</a><h1>Payment Reform: From public records to research data</h1></header>
 <main class="layout">
   <section class="workspace" aria-label="Interactive 3D source map">
     <div class="toolbar">
@@ -211,4 +213,5 @@ new ResizeObserver(() => {
     parent.postMessage({ type: 'public-data-map-height', height }, location.origin);
   }
 }).observe(document.body);
-</script></body></html>
+</script>  <div class="site-privacy-link"><a href="../../privacy.html">Privacy &amp; analytics</a></div>
+</body></html>
